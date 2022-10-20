@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1666263069125" clover="3.2.0">
-  <project timestamp="1666263069126" name="All files">
+<coverage generated="1666263334075" clover="3.2.0">
+  <project timestamp="1666263334076" name="All files">
     <metrics statements="14" coveredstatements="14" conditionals="0" coveredconditionals="0" methods="2" coveredmethods="2" elements="16" coveredelements="16" complexity="0" loc="14" ncloc="14" packages="1" files="1" classes="1"/>
     <file name="MainNav.vue" path="/home/theplague1738/Documents/Learning/job-search/src/components/MainNav.vue">
       <metrics statements="14" coveredstatements="14" conditionals="0" coveredconditionals="0" methods="2" coveredmethods="2"/>
@@ -16,7 +16,7 @@
       <line num="28" count="1" type="stmt"/>
       <line num="31" count="1" type="stmt"/>
       <line num="34" count="1" type="stmt"/>
-      <line num="39" count="1" type="stmt"/>
+      <line num="39" count="2" type="stmt"/>
       <line num="40" count="1" type="stmt"/>
     </file>
   </project>
