@@ -22,14 +22,24 @@
             </li>
           </ul>
         </nav>
+        <div class="flex items-center h-full ml-auto">
+          <ProfileImage v-if="isLoggedIn" />
+          <ActionButton v-else @click="loginUser" />
+        </div>
       </div>
     </div>
   </header>
 </template>
 
 <script>
+import ActionButton from "@/components/ActionButton";
+import ProfileImage from "@/components/ProfileImage";
 export default {
   name: "MainNav",
+  components: {
+    ActionButton,
+    ProfileImage,
+  },
   data() {
     return {
       company: "Ship Happens",
@@ -42,7 +52,13 @@ export default {
         "Students",
         "Jobs",
       ],
+      isLoggedIn: false,
     };
+  },
+  methods: {
+    loginUser() {
+      this.isLoggedIn = !this.isLoggedIn;
+    },
   },
 };
 </script>
