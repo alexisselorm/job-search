@@ -1,6 +1,6 @@
 <!-- eslint-disable vue/multi-word-component-names -->
 <template>
-  <section>
+  <section class="mb-16">
     <h1
       data-test="action-phrase"
       class="font-bold tracking-tighter text-8xl mb-14"
@@ -21,6 +21,8 @@ export default {
   data() {
     return {
       action: "Build",
+      actions: ["Build", "Create", "Design", "Code", "Good"],
+
       interval: null,
     };
   },
@@ -41,8 +43,8 @@ export default {
   methods: {
     changeTitle() {
       this.interval = setInterval(() => {
-        const actions = ["Build", "Create", "Design", "Code"];
-        this.action = nextElementInList(actions, this.action);
+        // const actions = ["Build", "Create", "Design", "Code"];
+        this.action = nextElementInList(this.actions, this.action);
         // console.log("Running", this.action);
       }, 3000);
     },
@@ -63,5 +65,9 @@ export default {
 
 .code {
   color: #d93025;
+}
+
+.good {
+  color: #0d6892;
 }
 </style>
