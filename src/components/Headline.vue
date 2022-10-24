@@ -1,12 +1,17 @@
 <!-- eslint-disable vue/multi-word-component-names -->
 <template>
   <section>
-    <h1>{{ action }} for everyone</h1>
-    <h2>Find your next job at Ship Happens</h2>
+    <h1 class="font-bold tracking-tighter text-8xl mb-14">
+      <span :class="actionClasses">{{ action }}</span>
+      <br />
+      for everyone
+    </h1>
+    <h2 class="text-3xl font-light">Find your next job at Ship Happens</h2>
   </section>
 </template>
 
 <script>
+import nextElementInList from "@/utils/nextElementInList";
 export default {
   // eslint-disable-next-line vue/multi-word-component-names
   name: "Headline",
@@ -15,6 +20,13 @@ export default {
       action: "Build",
       interval: null,
     };
+  },
+  computed: {
+    actionClasses() {
+      return {
+        [this.action.toLowerCase()]: true,
+      };
+    },
   },
   created() {
     this.changeTitle();
@@ -27,10 +39,7 @@ export default {
     changeTitle() {
       this.interval = setInterval(() => {
         const actions = ["Build", "Create", "Design", "Code"];
-        const currentActionIndex = actions.indexOf(this.action);
-        const nextActionIndex = (currentActionIndex + 1) % 4;
-        const nextAction = actions[nextActionIndex];
-        this.action = nextAction;
+        this.action = nextElementInList(actions, this.action);
         // console.log("Running", this.action);
       }, 3000);
     },
