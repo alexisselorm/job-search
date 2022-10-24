@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1666596540795" clover="3.2.0">
-  <project timestamp="1666596540796" name="All files">
+<coverage generated="1666597499855" clover="3.2.0">
+  <project timestamp="1666597499855" name="All files">
     <metrics statements="58" coveredstatements="58" conditionals="6" coveredconditionals="6" methods="9" coveredmethods="9" elements="73" coveredelements="73" complexity="0" loc="58" ncloc="58" packages="1" files="4" classes="4"/>
     <file name="ActionButton.vue" path="/home/theplague1738/Documents/Learning/job-search/src/components/ActionButton.vue">
       <metrics statements="11" coveredstatements="11" conditionals="0" coveredconditionals="0" methods="3" coveredmethods="3"/>
       <line num="4" count="2" type="stmt"/>
       <line num="7" count="2" type="stmt"/>
       <line num="8" count="2" type="stmt"/>
-      <line num="20" count="6" type="stmt"/>
+      <line num="20" count="7" type="stmt"/>
       <line num="26" count="2" type="stmt"/>
       <line num="34" count="2" type="stmt"/>
       <line num="36" count="2" type="stmt"/>
@@ -33,12 +33,12 @@
       <line num="74" count="1" type="stmt"/>
       <line num="77" count="1" type="stmt"/>
       <line num="81" count="1" type="stmt"/>
-      <line num="85" count="5" type="stmt"/>
-      <line num="86" count="5" type="stmt"/>
-      <line num="87" count="5" type="stmt"/>
-      <line num="88" count="5" type="stmt"/>
-      <line num="92" count="30" type="stmt"/>
-      <line num="108" count="1" type="stmt"/>
+      <line num="85" count="7" type="stmt"/>
+      <line num="86" count="7" type="stmt"/>
+      <line num="87" count="7" type="stmt"/>
+      <line num="88" count="7" type="stmt"/>
+      <line num="92" count="42" type="stmt"/>
+      <line num="109" count="1" type="stmt"/>
     </file>
     <file name="ProfileImage.vue" path="/home/theplague1738/Documents/Learning/job-search/src/components/ProfileImage.vue">
       <metrics statements="11" coveredstatements="11" conditionals="0" coveredconditionals="0" methods="2" coveredmethods="2"/>
