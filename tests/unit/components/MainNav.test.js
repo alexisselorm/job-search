@@ -31,10 +31,13 @@ describe("MainNav", () => {
   describe("when user logs in", () => {
     it("displays profile image", async () => {
       const wrapper = shallowMount(MainNav);
+      let profileImage = wrapper.find("[data-test='profile-image']");
+      expect(profileImage.exists()).toBe(false);
+
       const loginButton = wrapper.find("[data-test='login-button']");
       await loginButton.trigger("click");
-      const profileImage = wrapper.find("[data-test='profile-image']");
 
+      profileImage = wrapper.find("[data-test='profile-image']");
       expect(profileImage.exists()).toBe(true);
     });
   });
