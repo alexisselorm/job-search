@@ -27,7 +27,7 @@
           <ActionButton v-else text="Sign In" @click="loginUser" />
         </div>
       </div>
-      <SubNav />
+      <SubNav v-if="isLoggedIn" />
     </div>
   </header>
 </template>
