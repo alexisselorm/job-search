@@ -13,6 +13,7 @@ describe("ActionButton", () => {
   it("applies primary styles to button", () => {
     const wrapper = mount(ActionButton, {
       props: {
+        text: "Im so clickable",
         type: "primary",
       },
     });

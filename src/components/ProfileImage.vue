@@ -1,9 +1,5 @@
 <template>
-  <img
-    data-test="profile-image"
-    :src="imageLink"
-    class="w-8 h-8 object-contain rounded-3xl"
-  />
+  <img :src="imageLink" class="object-contain w-8 h-8 rounded-3xl" />
 </template>
 
 <script>

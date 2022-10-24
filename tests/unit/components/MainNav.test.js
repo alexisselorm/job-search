@@ -1,13 +1,13 @@
-import { mount } from "@vue/test-utils";
+import { shallowMount } from "@vue/test-utils";
 import MainNav from "@/components/MainNav";
 
 describe("MainNav", () => {
   it("displays our company name", () => {
-    const wrapper = mount(MainNav);
+    const wrapper = shallowMount(MainNav);
     expect(wrapper.text()).toMatch("Ship Happens");
   });
   it("displays menu items for navigation", () => {
-    const wrapper = mount(MainNav);
+    const wrapper = shallowMount(MainNav);
     const navigationMenuItems = wrapper.findAll(
       "[data-test='main-nav-list-item']"
     );
@@ -23,14 +23,14 @@ describe("MainNav", () => {
   });
   describe("when user is logged out", () => {
     it("promps user to sign in", () => {
-      const wrapper = mount(MainNav);
+      const wrapper = shallowMount(MainNav);
       const loginButton = wrapper.find("[data-test='login-button']");
       expect(loginButton.exists()).toBe(true);
     });
   });
   describe("when user logs in", () => {
     it("displays profile image", async () => {
-      const wrapper = mount(MainNav);
+      const wrapper = shallowMount(MainNav);
       const loginButton = wrapper.find("[data-test='login-button']");
       await loginButton.trigger("click");
       const profileImage = wrapper.find("[data-test='profile-image']");
