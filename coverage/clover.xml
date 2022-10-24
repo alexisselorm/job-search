@@ -1,42 +1,44 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1666462908166" clover="3.2.0">
-  <project timestamp="1666462908167" name="All files">
-    <metrics statements="41" coveredstatements="41" conditionals="2" coveredconditionals="2" methods="6" coveredmethods="6" elements="49" coveredelements="49" complexity="0" loc="41" ncloc="41" packages="1" files="3" classes="3"/>
+<coverage generated="1666594190268" clover="3.2.0">
+  <project timestamp="1666594190269" name="All files">
+    <metrics statements="58" coveredstatements="58" conditionals="6" coveredconditionals="6" methods="9" coveredmethods="9" elements="73" coveredelements="73" complexity="0" loc="58" ncloc="58" packages="1" files="4" classes="4"/>
     <file name="ActionButton.vue" path="/home/theplague1738/Documents/Learning/job-search/src/components/ActionButton.vue">
-      <metrics statements="10" coveredstatements="10" conditionals="0" coveredconditionals="0" methods="2" coveredmethods="2"/>
+      <metrics statements="11" coveredstatements="11" conditionals="0" coveredconditionals="0" methods="3" coveredmethods="3"/>
       <line num="4" count="2" type="stmt"/>
       <line num="7" count="2" type="stmt"/>
       <line num="8" count="2" type="stmt"/>
-      <line num="23" count="6" type="stmt"/>
-      <line num="31" count="2" type="stmt"/>
-      <line num="33" count="2" type="stmt"/>
+      <line num="20" count="6" type="stmt"/>
+      <line num="26" count="6" type="stmt"/>
+      <line num="34" count="2" type="stmt"/>
       <line num="36" count="2" type="stmt"/>
-      <line num="37" count="2" type="stmt"/>
-      <line num="39" count="6" type="stmt"/>
-      <line num="43" count="2" type="stmt"/>
+      <line num="39" count="2" type="stmt"/>
+      <line num="40" count="2" type="stmt"/>
+      <line num="42" count="6" type="stmt"/>
+      <line num="46" count="2" type="stmt"/>
     </file>
     <file name="MainNav.vue" path="/home/theplague1738/Documents/Learning/job-search/src/components/MainNav.vue">
-      <metrics statements="20" coveredstatements="20" conditionals="2" coveredconditionals="2" methods="2" coveredmethods="2"/>
+      <metrics statements="21" coveredstatements="21" conditionals="4" coveredconditionals="4" methods="2" coveredmethods="2"/>
       <line num="4" count="1" type="stmt"/>
       <line num="5" count="1" type="stmt"/>
       <line num="8" count="1" type="stmt"/>
-      <line num="46" count="1" type="stmt"/>
-      <line num="48" count="1" type="stmt"/>
-      <line num="51" count="1" type="stmt"/>
-      <line num="52" count="1" type="stmt"/>
-      <line num="53" count="1" type="stmt"/>
+      <line num="54" count="1" type="stmt"/>
       <line num="56" count="1" type="stmt"/>
       <line num="59" count="1" type="stmt"/>
-      <line num="62" count="1" type="stmt"/>
-      <line num="63" count="1" type="stmt"/>
-      <line num="66" count="1" type="stmt"/>
-      <line num="69" count="1" type="stmt"/>
-      <line num="73" count="1" type="stmt"/>
-      <line num="77" count="5" type="stmt"/>
-      <line num="78" count="5" type="stmt"/>
-      <line num="79" count="5" type="stmt"/>
-      <line num="83" count="30" type="stmt"/>
-      <line num="95" count="1" type="stmt"/>
+      <line num="60" count="1" type="stmt"/>
+      <line num="61" count="1" type="stmt"/>
+      <line num="64" count="1" type="stmt"/>
+      <line num="67" count="1" type="stmt"/>
+      <line num="70" count="1" type="stmt"/>
+      <line num="71" count="1" type="stmt"/>
+      <line num="74" count="1" type="stmt"/>
+      <line num="77" count="1" type="stmt"/>
+      <line num="81" count="1" type="stmt"/>
+      <line num="85" count="5" type="stmt"/>
+      <line num="86" count="5" type="stmt"/>
+      <line num="87" count="5" type="stmt"/>
+      <line num="88" count="5" type="stmt"/>
+      <line num="92" count="30" type="stmt"/>
+      <line num="106" count="1" type="stmt"/>
     </file>
     <file name="ProfileImage.vue" path="/home/theplague1738/Documents/Learning/job-search/src/components/ProfileImage.vue">
       <metrics statements="11" coveredstatements="11" conditionals="0" coveredconditionals="0" methods="2" coveredmethods="2"/>
@@ -51,6 +53,24 @@
       <line num="25" count="1" type="stmt"/>
       <line num="27" count="1" type="stmt"/>
       <line num="32" count="1" type="stmt"/>
+    </file>
+    <file name="SubNav.vue" path="/home/theplague1738/Documents/Learning/job-search/src/components/SubNav.vue">
+      <metrics statements="15" coveredstatements="15" conditionals="2" coveredconditionals="2" methods="2" coveredmethods="2"/>
+      <line num="4" count="2" type="stmt"/>
+      <line num="7" count="2" type="stmt"/>
+      <line num="8" count="2" type="stmt"/>
+      <line num="11" count="3" type="stmt"/>
+      <line num="18" count="2" type="stmt"/>
+      <line num="20" count="2" type="stmt"/>
+      <line num="23" count="2" type="stmt"/>
+      <line num="24" count="2" type="stmt"/>
+      <line num="25" count="2" type="stmt"/>
+      <line num="28" count="2" type="stmt"/>
+      <line num="31" count="2" type="stmt"/>
+      <line num="35" count="2" type="stmt"/>
+      <line num="40" count="3" type="stmt"/>
+      <line num="41" count="3" type="cond" truecount="2" falsecount="0"/>
+      <line num="45" count="2" type="stmt"/>
     </file>
   </project>
 </coverage>
