@@ -1,7 +1,10 @@
 <!-- eslint-disable vue/multi-word-component-names -->
 <template>
   <section>
-    <h1 class="font-bold tracking-tighter text-8xl mb-14">
+    <h1
+      data-test="action-phrase"
+      class="font-bold tracking-tighter text-8xl mb-14"
+    >
       <span :class="actionClasses">{{ action }}</span>
       <br />
       for everyone

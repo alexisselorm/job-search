@@ -11,4 +11,4 @@
 
 // const list = ["A", "B", "C", "D", "E"];
 // console.log(list.length);
-console.log(0 % 4);
+// console.log(0 % 4);
