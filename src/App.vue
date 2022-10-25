@@ -7,7 +7,7 @@
 
 <script>
 import MainNav from "@/components/Navigation/MainNav";
-import HeroSection from "@/components/Hero";
+import HeroSection from "@/components/JobSearch/Hero";
 export default {
   name: "App",
   components: {

@@ -21,7 +21,7 @@
 </template>
 
 <script>
-import Headline from "@/components/Headline";
+import Headline from "@/components/JobSearch/Headline";
 import JobSearchForm from "./JobSearchForm.vue";
 export default {
   name: "HeroSection",

@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1666656285571" clover="3.2.0">
-  <project timestamp="1666656285571" name="All files">
-    <metrics statements="75" coveredstatements="75" conditionals="6" coveredconditionals="6" methods="11" coveredmethods="11" elements="92" coveredelements="92" complexity="0" loc="75" ncloc="75" packages="3" files="6" classes="6"/>
+<coverage generated="1666656521756" clover="3.2.0">
+  <project timestamp="1666656521757" name="All files">
+    <metrics statements="75" coveredstatements="75" conditionals="6" coveredconditionals="6" methods="11" coveredmethods="11" elements="92" coveredelements="92" complexity="0" loc="75" ncloc="75" packages="4" files="6" classes="6"/>
     <package name="components">
-      <metrics statements="24" coveredstatements="24" conditionals="0" coveredconditionals="0" methods="4" coveredmethods="4"/>
+      <metrics statements="11" coveredstatements="11" conditionals="0" coveredconditionals="0" methods="3" coveredmethods="3"/>
       <file name="ActionButton.vue" path="/home/theplague1738/Documents/Learning/job-search/src/components/ActionButton.vue">
         <metrics statements="11" coveredstatements="11" conditionals="0" coveredconditionals="0" methods="3" coveredmethods="3"/>
         <line num="4" count="2" type="stmt"/>
@@ -18,7 +18,10 @@
         <line num="42" count="2" type="stmt"/>
         <line num="45" count="2" type="stmt"/>
       </file>
-      <file name="Headline.vue" path="/home/theplague1738/Documents/Learning/job-search/src/components/Headline.vue">
+    </package>
+    <package name="components.JobSearch">
+      <metrics statements="13" coveredstatements="13" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
+      <file name="Headline.vue" path="/home/theplague1738/Documents/Learning/job-search/src/components/JobSearch/Headline.vue">
         <metrics statements="13" coveredstatements="13" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
         <line num="4" count="1" type="stmt"/>
         <line num="5" count="1" type="stmt"/>

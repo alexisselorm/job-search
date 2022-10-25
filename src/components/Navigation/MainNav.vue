@@ -38,7 +38,7 @@
 </template>
 
 <script>
-import ActionButton from "@/components/ActionButton";
+import ActionButton from "@/components/Shared/ActionButton";
 import ProfileImage from "@/components/Navigation/ProfileImage";
 import SubNav from "@/components/Navigation/SubNav";
 export default {
