@@ -39,8 +39,8 @@
 
 <script>
 import ActionButton from "@/components/ActionButton";
-import ProfileImage from "@/components/ProfileImage";
-import SubNav from "@/components/SubNav";
+import ProfileImage from "@/components/Navigation/ProfileImage";
+import SubNav from "@/components/Navigation/SubNav";
 export default {
   name: "MainNav",
   components: {

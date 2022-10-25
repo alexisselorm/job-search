@@ -49,7 +49,7 @@ BRF:0
 BRH:0
 end_of_record
 TN:
-SF:src/components/MainNav.vue
+SF:src/components/Navigation/MainNav.vue
 FN:89,render
 FN:98,(anonymous_1)
 FNF:2
@@ -86,7 +86,7 @@ BRF:4
 BRH:4
 end_of_record
 TN:
-SF:src/components/ProfileImage.vue
+SF:src/components/Navigation/ProfileImage.vue
 FN:10,(anonymous_0)
 FN:26,render
 FNF:2
@@ -110,7 +110,7 @@ BRF:0
 BRH:0
 end_of_record
 TN:
-SF:src/components/SubNav.vue
+SF:src/components/Navigation/SubNav.vue
 FN:10,(anonymous_0)
 FN:39,render
 FNF:2
