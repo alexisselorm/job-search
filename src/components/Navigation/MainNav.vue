@@ -14,13 +14,15 @@
           <ul class="flex h-full p-0 m-0 list-none">
             <li
               v-for="menuItem in menuItems"
-              :key="menuItem"
+              :key="menuItem.text"
               data-test="main-nav-list-item"
               class="h-full ml-9 first:ml-0"
             >
-              <a href="" class="flex items-center h-full py-2.5">{{
-                menuItem
-              }}</a>
+              <router-link
+                :to="menuItem.url"
+                class="flex items-center h-full py-2.5"
+                >{{ menuItem.text }}</router-link
+              >
             </li>
           </ul>
         </nav>
@@ -54,12 +56,12 @@ export default {
     return {
       url: "https://careers.google.com",
       menuItems: [
-        "Teams",
-        "Locations",
-        "Life at Ship Happens",
-        "How we hire",
-        "Students",
-        "Jobs",
+        { text: "Teams", url: "/teams" },
+        { text: "Locations", url: "/location" },
+        { text: "Life at Ship Happens", url: "/life" },
+        { text: "How we hire", url: "/hiring" },
+        { text: "Students", url: "/students" },
+        { text: "Jobs", url: "/jobs/results/" },
       ],
       isLoggedIn: false,
     };
