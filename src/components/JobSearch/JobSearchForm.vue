@@ -2,12 +2,17 @@
   <form
     class="flex items-center w-full h-12 border border-solid mt-14 border-brand-gray-3 rounded-3xl"
     action=""
+    @submit.prevent="searchForJobs"
   >
     <font-awesome-icon :icon="['fas', 'search']" class="ml-4 mr-3" />
     <div class="flex flex-1 h-full text-base font-light flex-nowrap">
       <div class="relative flex items-center flex-1 h-full pr-3">
         <label class="absolute left-0 -top-10" for="role">Role</label>
-        <TextInput v-model="role" placeholder="Software Engineer" />
+        <TextInput
+          v-model="role"
+          data-test="role-input"
+          placeholder="Software Engineer"
+        />
       </div>
       <span
         class="flex items-center h-full px-3 border-l border-r border-brand-gray-3 bg-brand-gray-2"
@@ -15,10 +20,19 @@
       >
       <div class="relative flex items-center flex-1 h-full pl-3">
         <label class="absolute left-0 -top-10" for="location">Location</label>
-        <TextInput v-model="location" placeholder="Science Market" />
+        <TextInput
+          v-model="location"
+          data-test="location-input"
+          placeholder="Science Market"
+        />
       </div>
     </div>
-    <ActionButton text="Search" type="secondary" class="rounded-r-3xl" />
+    <ActionButton
+      text="Search"
+      data-test="form-submit-button"
+      type="secondary"
+      class="rounded-r-3xl"
+    />
   </form>
 </template>
 
@@ -36,6 +50,14 @@ export default {
       role: "",
       location: "",
     };
+  },
+  methods: {
+    searchForJobs() {
+      this.$router.push({
+        name: "JobResults",
+        query: { role: this.role, location: this.location },
+      });
+    },
   },
 };
 </script>
