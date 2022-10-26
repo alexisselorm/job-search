@@ -3,7 +3,7 @@ import HomeView from "@/views/HomeView";
 import JobResultsView from "@/views/JobResultsView";
 
 const routes = [
-  { path: "/", name: "Home", component: HomeView },
+  { path: "/", name: "home", component: HomeView },
   { path: "/jobs/results", name: "JobResults", component: JobResultsView },
 ];
 

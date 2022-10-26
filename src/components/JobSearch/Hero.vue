@@ -3,7 +3,7 @@
     <section class="flex flex-col h-screen pt-10 pb-20">
       <div class="grid grid-cols-12">
         <div class="col-span-1 col-start-1"></div>
-        <div class="col-span-5 col-start-2">
+        <div class="text-start col-span-5 col-start-2">
           <Headline />
           <JobSearchForm />
         </div>
@@ -24,7 +24,8 @@
 import Headline from "@/components/JobSearch/Headline";
 import JobSearchForm from "./JobSearchForm.vue";
 export default {
-  name: "HeroSection",
+  // eslint-disable-next-line vue/multi-word-component-names
+  name: "Hero",
   components: {
     Headline,
     JobSearchForm,
