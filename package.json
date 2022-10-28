@@ -42,11 +42,5 @@
     "jest": "^27.0.5",
     "prettier": "^2.4.1",
     "vue-cli-plugin-tailwind": "~3.0.0"
-  },
-  "jest": {
-    "preset": "@vue/cli-plugin-unit-jest",
-    "transformIgnorePatterns": [
-      "node_modules/(?!axios)"
-    ]
   }
 }
