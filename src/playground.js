@@ -16,8 +16,17 @@
 const axios = require("axios");
 
 const url = "http://localhost:3000/jobs";
+const fetchJobsv1 = () => {
+  axios
+    .get(url)
+    .then((response) => console.log(response))
+    .catch((reject) => console.log(reject.message));
+};
+fetchJobsv1();
 
-axios
-  .get(url)
-  .then((response) => console.log(response))
-  .catch((reject) => console.log(reject.message));
+const fetchJobsv2 = async () => {
+  const result = await axios.get(url);
+  console.log(result.data);
+};
+
+fetchJobsv2();
