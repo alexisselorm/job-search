@@ -12,3 +12,12 @@
 // const list = ["A", "B", "C", "D", "E"];
 // console.log(list.length);
 // console.log(0 % 4);
+
+const axios = require("axios");
+
+const url = "http://localhost:3000/jobs";
+
+axios
+  .get(url)
+  .then((response) => console.log(response))
+  .catch((reject) => console.log(reject.message));
