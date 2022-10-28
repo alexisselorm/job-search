@@ -7,8 +7,8 @@ import JobListings from "@/components/JobResults/JobListings";
 describe("JobListings", () => {
   it("fetches jobs", async () => {
     shallowMount(JobListings);
-    await flushPromises();
     axios.get.mockResolvedValue({ data: [] });
+    await flushPromises();
     expect(axios.get).toHaveBeenCalledWith("http://localhost:3000/jobs");
   });
 
@@ -17,6 +17,6 @@ describe("JobListings", () => {
     const wrapper = shallowMount(JobListings);
     await flushPromises();
     const jobListings = wrapper.findAll("[data-test='job-listing']");
-    expect(jobListings.length).toHaveLength(15);
+    expect(jobListings).toHaveLength(15);
   });
 });
