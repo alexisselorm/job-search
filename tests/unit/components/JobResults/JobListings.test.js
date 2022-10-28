@@ -9,7 +9,6 @@ describe("JobListings", () => {
     shallowMount(JobListings);
     await flushPromises();
     axios.get.mockResolvedValue({ data: [] });
-    console.log(axios.get());
     expect(axios.get).toHaveBeenCalledWith("http://localhost:3000/jobs");
   });
 
