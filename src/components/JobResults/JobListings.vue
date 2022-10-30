@@ -8,6 +8,15 @@
         data-test="job-listing"
       />
     </ol>
+    <div class="mt-8 mx-auto">
+      <div class="flex flex-row flex-nowrap">
+        <p class="text-sm flex-grow">Page {{ currentPage }}</p>
+        <div class="flex items-center justify-center">
+          <router-link :to="previousPage">Previous</router-link>
+          <router-link :to="nextPage">Next</router-link>
+        </div>
+      </div>
+    </div>
   </main>
 </template>
 
@@ -25,9 +34,22 @@ export default {
     };
   },
   computed: {
-    displayedJobs() {
+    previousPage() {
+      const previousPage = this.currentPage - 1;
+      const firstPage = 1;
+      return previousPage >= firstPage ? previousPage : undefined;
+    },
+    nextPage() {
+      const nextPage = this.currentPage + 1;
+      const maxPage = this.jobs.length / 10;
+      return nextPage <= maxPage ? nextPage : undefined;
+    },
+    currentPage() {
       const pageString = this.$route.query.page || "1";
-      const pageNumber = Number.parseInt(pageString);
+      return Number.parseInt(pageString);
+    },
+    displayedJobs() {
+      const pageNumber = this.currentPage;
       const firstJobIndex = (pageNumber - 1) * 10;
       const lastJobIndex = pageNumber * 10;
 
