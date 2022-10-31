@@ -5,6 +5,11 @@ describe("state", () => {
     const startingState = state();
     expect(startingState.isLoggedIn).toBe(false);
   });
+
+  it("stores job listing", () => {
+    const startingState = state();
+    expect(startingState.jobList).toEqual([]);
+  });
 });
 
 describe("mutations", () => {
