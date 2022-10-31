@@ -46,6 +46,7 @@ import ActionButton from "@/components/Shared/ActionButton";
 import ProfileImage from "@/components/Navigation/ProfileImage";
 import SubNav from "@/components/Navigation/SubNav";
 import { LOGIN_USER } from "@/store";
+import { mapState } from "vuex";
 export default {
   name: "MainNav",
   components: {
@@ -73,9 +74,12 @@ export default {
         "h-32": this.isLoggedIn,
       };
     },
-    isLoggedIn() {
-      return this.$store.state.isLoggedIn;
-    },
+    // isLoggedIn() {
+    //   return this.$store.state.isLoggedIn;
+    // },
+    ...mapState({
+      isLoggedIn: (state) => state.isLoggedIn,
+    }),
   },
   methods: {
     loginUser() {
