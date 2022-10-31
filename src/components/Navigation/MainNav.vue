@@ -74,12 +74,7 @@ export default {
         "h-32": this.isLoggedIn,
       };
     },
-    // isLoggedIn() {
-    //   return this.$store.state.isLoggedIn;
-    // },
-    ...mapState({
-      isLoggedIn: (state) => state.isLoggedIn,
-    }),
+    ...mapState(["isLoggedIn"]),
   },
   methods: {
     loginUser() {
