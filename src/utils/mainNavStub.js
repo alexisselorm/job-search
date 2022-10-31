@@ -1,8 +1,10 @@
 import { RouterLinkStub } from "@vue/test-utils";
 //Use a predefined stub for router-link. This method is passed in as the second argument in a mount/shallowMethod method.
-const createConfig = (store) => ({
+const createConfig = ($store) => ({
   global: {
-    plugins: [store],
+    mocks: {
+      $store,
+    },
     stubs: { "router-link": RouterLinkStub },
   },
 });
