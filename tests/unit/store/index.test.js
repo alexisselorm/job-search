@@ -11,6 +11,10 @@ describe("state", () => {
     const startingState = state();
     expect(startingState.jobs).toEqual([]);
   });
+  it("stores organizations that the user would like to filter jobs by", () => {
+    const startingState = state();
+    expect(startingState.selectedOrganizations).toEqual([]);
+  });
 });
 
 describe("mutations", () => {
@@ -26,6 +30,13 @@ describe("mutations", () => {
       const state = { jobs: [] };
       mutations.RECEIVE_JOBS(state, ["Job 1", "Job 2"]);
       expect(state).toEqual({ jobs: ["Job 1", "Job 2"] });
+    });
+  });
+  describe("ADD_SELECTED_ORGANIZATIONS", () => {
+    it("updates organizations that the user has chose to filter jobs by", () => {
+      const state = { selectedOrganizations: [] };
+      mutations.ADD_SELECTED_ORGANIZATIONS(state, ["Amazon", "Google"]);
+      expect(state).toEqual({ selectedOrganizations: ["Amazon", "Google"] });
     });
   });
 });

@@ -42,3 +42,15 @@
 // ];
 
 // console.log(sushi.slice(2, 8));
+
+// const numbers = [1, 2, 3, 4, 56, 9, 7, 12];
+// const filtered = numbers.filter((number) => number > 6);
+// console.log(filtered);
+
+const jobs = [
+  { title: "Angular Dev", organization: "Microsoft" },
+  { title: "Programmer", organization: "Google" },
+  { title: "Dever", organization: "Microsoft" },
+];
+
+console.log(jobs.filter((job) => job.organization === "Microsoft"));
