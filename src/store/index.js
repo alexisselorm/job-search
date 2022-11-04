@@ -35,8 +35,9 @@ export const actions = {
 // Never modify data in getters.
 export const getters = {
   [UNIQUE_ORGANIZATIONS](state) {
-    const uniqueOrganiztions = new Set();
-    state.jobs.forEach((job) => uniqueOrganiztions.add(job.organiztion));
+    const uniqueOrganizations = new Set();
+    state.jobs.forEach((job) => uniqueOrganizations.add(job.organization));
+    return uniqueOrganizations;
   },
 };
 
