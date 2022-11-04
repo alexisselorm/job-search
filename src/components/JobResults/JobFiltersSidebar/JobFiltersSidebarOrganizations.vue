@@ -11,6 +11,7 @@
             <input
               :id="organization"
               v-model="selectedOrganizations"
+              :data-test="organization"
               :value="organization"
               type="checkbox"
               class="mr-3"
