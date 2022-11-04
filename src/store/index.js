@@ -5,6 +5,9 @@ export const LOGIN_USER = "LOGIN_USER";
 export const RECEIVE_JOBS = "RECEIVE_JOBS";
 export const FETCH_JOBS = "FETCH_JOBS";
 
+// Getters - We use getters whenever we want Vue to automatically rerun a bit of logic when some other core data changes
+export const UNIQUE_ORGANIZATIONS = "UNIQUE_ORGANIZATIONS";
+
 export const state = () => {
   return {
     isLoggedIn: false,
@@ -28,10 +31,21 @@ export const actions = {
   },
 };
 
+// Getters
+// Never modify data in getters.
+export const getters = {
+  [UNIQUE_ORGANIZATIONS](state) {
+    const uniqueOrganiztions = new Set();
+    state.jobs.forEach((job) => uniqueOrganiztions.add(job.organiztion));
+  },
+};
+
 const store = createStore({
   state,
   mutations,
   actions,
+  // getters
+  getters,
   strict: process.env.NODE_ENV !== "production",
 });
 

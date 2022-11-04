@@ -1,4 +1,4 @@
-import { state, mutations, actions } from "@/store";
+import { state, mutations, actions, getters } from "@/store";
 import getJobs from "@/api/getJobs";
 jest.mock("@/api/getJobs");
 describe("state", () => {
@@ -28,33 +28,48 @@ describe("mutations", () => {
       expect(state).toEqual({ jobs: ["Job 1", "Job 2"] });
     });
   });
-
-  describe("actions", () => {
-    describe("FETCH_JOBS", () => {
-      beforeEach(() => {
-        getJobs.mockResolvedValue([
-          {
-            id: 1,
-            title: "Software Developer",
-          },
-        ]);
-      });
-      it("makes a request to fetch jobs", async () => {
-        const context = { commit: jest.fn() };
-        await actions.FETCH_JOBS(context);
-        expect(getJobs).toHaveBeenCalled();
-      });
-      it("sends message to save received jobs in store", async () => {
-        const commit = jest.fn();
-        const context = { commit };
-        await actions.FETCH_JOBS(context);
-        expect(commit).toHaveBeenCalledWith("RECEIVE_JOBS", [
-          {
-            id: 1,
-            title: "Software Developer",
-          },
-        ]);
-      });
+});
+describe("actions", () => {
+  describe("FETCH_JOBS", () => {
+    beforeEach(() => {
+      getJobs.mockResolvedValue([
+        {
+          id: 1,
+          title: "Software Developer",
+        },
+      ]);
+    });
+    it("makes a request to fetch jobs", async () => {
+      const context = { commit: jest.fn() };
+      await actions.FETCH_JOBS(context);
+      expect(getJobs).toHaveBeenCalled();
+    });
+    it("sends message to save received jobs in store", async () => {
+      const commit = jest.fn();
+      const context = { commit };
+      await actions.FETCH_JOBS(context);
+      expect(commit).toHaveBeenCalledWith("RECEIVE_JOBS", [
+        {
+          id: 1,
+          title: "Software Developer",
+        },
+      ]);
+    });
+  });
+});
+describe("getters", () => {
+  describe("UNIQUE_ORGANIZATIONS", () => {
+    it("finds unique organizations from list of jobs", () => {
+      const state = {
+        jobs: [
+          // Double google entry because I need to confirm the set method really works and everything is unique
+          { organization: "Google" },
+          { organization: "Amazon" },
+          { organization: "Google" },
+        ],
+      };
+      const result = getters.UNIQUE_ORGANIZATIONS(state);
+      expect(result).toEqual(new Set(["Google", "Amazon"]));
     });
   });
 });
