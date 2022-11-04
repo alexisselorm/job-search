@@ -1,7 +1,7 @@
 import {
   UNIQUE_ORGANIZATIONS,
   FILTERED_JOBS_BY_ORGANIZATIONS,
-} from "@/store/contants";
+} from "@/store/constants";
 
 // Getters
 // Never modify data in getters.
