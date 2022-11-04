@@ -19,7 +19,7 @@
 <script>
 import ActionButton from "@/components/Shared/ActionButton.vue";
 import Accordion from "@/components/Shared/Accordion.vue";
-import JobFiltersSibarOrganizations from "./JobFiltersSibarOrganizations.vue";
+import JobFiltersSibarOrganizations from "@/components/JobResults/JobFiltersSidebar/JobFiltersSibarOrganizations.vue";
 export default {
   name: "JobResultsSidebar",
   components: {
