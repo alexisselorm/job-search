@@ -46,6 +46,8 @@ import { mapState, mapMutations } from "vuex";
 import ActionButton from "@/components/Shared/ActionButton";
 import ProfileImage from "@/components/Navigation/ProfileImage";
 import SubNav from "@/components/Navigation/SubNav";
+
+import { LOGIN_USER } from "@/store/constants";
 export default {
   name: "MainNav",
   components: {
@@ -76,7 +78,7 @@ export default {
     ...mapState(["isLoggedIn"]),
   },
   methods: {
-    ...mapMutations(["LOGIN_USER"]),
+    ...mapMutations([LOGIN_USER]),
   },
 };
 </script>

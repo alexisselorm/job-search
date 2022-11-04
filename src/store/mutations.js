@@ -2,7 +2,7 @@ import {
   LOGIN_USER,
   RECEIVE_JOBS,
   ADD_SELECTED_ORGANIZATIONS,
-} from "@/store/contants";
+} from "@/store/constants";
 
 const mutations = {
   [LOGIN_USER](state) {
