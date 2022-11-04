@@ -8,9 +8,9 @@
         data-test="job-listing"
       />
     </ol>
-    <div class="mt-8 mx-auto">
+    <div class="mx-auto mt-8">
       <div class="flex flex-row flex-nowrap">
-        <p class="text-sm flex-grow">Page {{ currentPage }}</p>
+        <p class="flex-grow text-sm">Page {{ currentPage }}</p>
         <div class="flex items-center justify-center">
           <router-link
             v-if="previousPage"
@@ -33,8 +33,8 @@
 </template>
 
 <script>
-import { mapState, mapActions } from "vuex";
-import { FETCH_JOBS } from "@/store";
+import { mapGetters, mapActions } from "vuex";
+import { FETCH_JOBS, FILTERED_JOBS_BY_ORGANIZATIONS } from "@/store";
 import JobListing from "@/components/JobResults/JobListing.vue";
 export default {
   name: "JobListings",
@@ -42,6 +42,8 @@ export default {
     JobListing,
   },
   computed: {
+    ...mapGetters([FILTERED_JOBS_BY_ORGANIZATIONS]),
+
     previousPage() {
       const previousPage = this.currentPage - 1;
       const firstPage = 1;
@@ -49,7 +51,9 @@ export default {
     },
     nextPage() {
       const nextPage = this.currentPage + 1;
-      const maxPage = Math.ceil(this.jobs.length / 10);
+      const maxPage = Math.ceil(
+        this.FILTERED_JOBS_BY_ORGANIZATIONS.length / 10
+      );
       return nextPage <= maxPage ? nextPage : undefined;
     },
     currentPage() {
@@ -60,12 +64,16 @@ export default {
       const pageNumber = this.currentPage;
       const firstJobIndex = (pageNumber - 1) * 10;
       const lastJobIndex = pageNumber * 10;
-
-      return this.jobs.slice(firstJobIndex, lastJobIndex);
+      // This filtered jobs array is coming from the mapGetters helper function, which has our jobs array that was populated by the FETCH_JOBS action and filtered by the FILTERED_JOBS_BY_ORGANIZATION getter,and we're slicing them in chunks of 10 based on the page we're currently on
+      return this.FILTERED_JOBS_BY_ORGANIZATIONS.slice(
+        firstJobIndex,
+        lastJobIndex
+      );
     },
-    ...mapState(["jobs"]),
+    // ...mapState(["jobs"]),
   },
   async mounted() {
+    // The action that actually triggers our api request
     this.FETCH_JOBS();
   },
   methods: {

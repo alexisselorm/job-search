@@ -11,6 +11,7 @@ export const FETCH_JOBS = "FETCH_JOBS";
 
 // Getters - We use getters whenever we want Vue to automatically rerun a bit of logic when some other core data changes
 export const UNIQUE_ORGANIZATIONS = "UNIQUE_ORGANIZATIONS";
+export const FILTERED_JOBS_BY_ORGANIZATIONS = "FILTERED_JOBS_BY_ORGANIZATIONS";
 
 export const state = () => {
   return {
@@ -48,6 +49,14 @@ export const getters = {
     const uniqueOrganizations = new Set();
     state.jobs.forEach((job) => uniqueOrganizations.add(job.organization));
     return uniqueOrganizations;
+  },
+  [FILTERED_JOBS_BY_ORGANIZATIONS](state) {
+    if (state.selectedOrganizations.length === 0) {
+      return state.jobs;
+    }
+    return state.jobs.filter((job) =>
+      state.selectedOrganizations.includes(job.organization)
+    );
   },
 };
 
