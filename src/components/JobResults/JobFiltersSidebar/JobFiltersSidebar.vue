@@ -12,20 +12,20 @@
       <Accordion header="Job Types">
         <!-- If I don't specify anything here, the fallback text in the Accordion will fire -->
       </Accordion>
-      <JobFiltersSibarOrganizations />
+      <JobFiltersSidebarOrganizations />
     </section>
   </div>
 </template>
 <script>
 import ActionButton from "@/components/Shared/ActionButton.vue";
 import Accordion from "@/components/Shared/Accordion.vue";
-import JobFiltersSibarOrganizations from "@/components/JobResults/JobFiltersSidebar/JobFiltersSibarOrganizations.vue";
+import JobFiltersSidebarOrganizations from "@/components/JobResults/JobFiltersSidebar/JobFiltersSidebarOrganizations.vue";
 export default {
   name: "JobResultsSidebar",
   components: {
     ActionButton,
     Accordion,
-    JobFiltersSibarOrganizations,
+    JobFiltersSidebarOrganizations,
   },
 };
 </script>
