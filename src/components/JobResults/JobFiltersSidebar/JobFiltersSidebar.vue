@@ -9,23 +9,27 @@
           <ActionButton text="Clear Filters" type="secondary" />
         </div>
       </div>
-      <Accordion header="Job Types">
-        <!-- If I don't specify anything here, the fallback text in the Accordion will fire -->
-      </Accordion>
+      <!-- <Accordion header="Job Types"> -->
+      <!-- If I don't specify anything here, the fallback text in the Accordion will fire -->
+      <!-- </Accordion> -->
+      <JobFiltersSidebarJobTypes />
+
       <JobFiltersSidebarOrganizations />
     </section>
   </div>
 </template>
 <script>
 import ActionButton from "@/components/Shared/ActionButton.vue";
-import Accordion from "@/components/Shared/Accordion.vue";
+// import Accordion from "@/components/Shared/Accordion.vue";
 import JobFiltersSidebarOrganizations from "@/components/JobResults/JobFiltersSidebar/JobFiltersSidebarOrganizations.vue";
+import JobFiltersSidebarJobTypes from "@/components/JobResults/JobFiltersSidebar/JobFiltersSidebarJobTypes.vue";
 export default {
   name: "JobResultsSidebar",
   components: {
     ActionButton,
-    Accordion,
+    // Accordion,
     JobFiltersSidebarOrganizations,
+    JobFiltersSidebarJobTypes,
   },
 };
 </script>
