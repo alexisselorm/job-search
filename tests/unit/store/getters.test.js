@@ -102,4 +102,44 @@ describe("getters", () => {
       });
     });
   });
+  describe("INCLUDE_JOBS_BY_ORGANIZATION", () => {
+    describe("when the user has not selected any organizations", () => {
+      it("includes job", () => {
+        const state = {
+          selectedOrganizations: [],
+        };
+        const job = { organization: "Google" };
+        const includeJob = getters.INCLUDE_JOB_BY_ORGANIZATION(state)(job);
+        expect(includeJob).toBe(true);
+      });
+    });
+    it("identifies if job is associated with given organizations", () => {
+      const state = {
+        selectedOrganizations: ["Google", "Amazon"],
+      };
+      const job = { organization: "Google" };
+      const includeJob = getters.INCLUDE_JOB_BY_ORGANIZATION(state)(job);
+      expect(includeJob).toBe(true);
+    });
+  });
+  describe("INCLUDE_JOBS_BY_JOB_TYPES", () => {
+    describe("when the user has not selected any job type", () => {
+      it("includes job", () => {
+        const state = {
+          selectedJobTypes: [],
+        };
+        const job = { jobType: "Intern" };
+        const includeJob = getters.INCLUDE_JOB_BY_JOB_TYPE(state)(job);
+        expect(includeJob).toBe(true);
+      });
+    });
+    it("identifies if job is associated with given job types", () => {
+      const state = {
+        selectedJobTypes: ["Intern", "Full-time"],
+      };
+      const job = { jobType: "Intern" };
+      const includeJob = getters.INCLUDE_JOB_BY_JOB_TYPE(state)(job);
+      expect(includeJob).toBe(true);
+    });
+  });
 });
