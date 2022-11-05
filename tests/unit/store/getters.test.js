@@ -1,7 +1,7 @@
 import getters from "@/store/getters";
 
 describe("getters", () => {
-  describe("UNIQUE_ORGANIZATIONS", () => {
+  describe("UNIQUE_JobTypes", () => {
     it("finds unique organizations from list of jobs", () => {
       const state = {
         jobs: [
@@ -31,6 +31,7 @@ describe("getters", () => {
         { organization: "Microsoft" },
       ]);
     });
+
     describe("when the user has not selected any organizations", () => {
       it("should return all jobs", () => {
         const state = {
@@ -46,6 +47,57 @@ describe("getters", () => {
           { organization: "Google" },
           { organization: "Microsoft" },
           { organization: "Amazon" },
+        ]);
+      });
+    });
+  });
+  describe("UNIQUE_JOB_TYPES", () => {
+    it("finds unique job types from list of jobs", () => {
+      const state = {
+        jobs: [
+          // Double google entry because I need to confirm the set method really works and everything is unique
+          { jobType: "Intern" },
+          { jobType: "Part-time" },
+          { jobType: "Full-time" },
+          { jobType: "Intern" },
+        ],
+      };
+      const result = getters.UNIQUE_JOB_TYPES(state);
+      expect(result).toEqual(new Set(["Intern", "Part-time", "Full-time"]));
+    });
+  });
+  describe("FILTERED_JOBS_BY_JOB_TYPES", () => {
+    it("identifies jobs that are associated with the given job types", () => {
+      const state = {
+        jobs: [
+          { jobType: "Full-Time" },
+          { jobType: "Intern" },
+          { jobType: "Part-time" },
+        ],
+        selectedJobTypes: ["Intern", "Part-time"],
+      };
+      const filteredJobs = getters.FILTERED_JOBS_BY_JOB_TYPES(state);
+      expect(filteredJobs).toEqual([
+        { jobType: "Intern" },
+        { jobType: "Part-time" },
+      ]);
+    });
+
+    describe("when the user has not selected any job type", () => {
+      it("should return all jobs", () => {
+        const state = {
+          jobs: [
+            { jobType: "Full-Time" },
+            { jobType: "Intern" },
+            { jobType: "Part-time" },
+          ],
+          selectedJobTypes: [],
+        };
+        const filteredJobs = getters.FILTERED_JOBS_BY_JOB_TYPES(state);
+        expect(filteredJobs).toEqual([
+          { jobType: "Full-Time" },
+          { jobType: "Intern" },
+          { jobType: "Part-time" },
         ]);
       });
     });
