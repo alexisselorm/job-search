@@ -15,42 +15,6 @@ describe("getters", () => {
       expect(result).toEqual(new Set(["Google", "Amazon"]));
     });
   });
-  describe("FILTERED_JOBS_BY_ORGANIZATIONS", () => {
-    it("identifies jobs that are associated with the given organizations", () => {
-      const state = {
-        jobs: [
-          { organization: "Google" },
-          { organization: "Microsoft" },
-          { organization: "Amazon" },
-        ],
-        selectedOrganizations: ["Google", "Microsoft"],
-      };
-      const filteredJobs = getters.FILTERED_JOBS_BY_ORGANIZATIONS(state);
-      expect(filteredJobs).toEqual([
-        { organization: "Google" },
-        { organization: "Microsoft" },
-      ]);
-    });
-
-    describe("when the user has not selected any organizations", () => {
-      it("should return all jobs", () => {
-        const state = {
-          jobs: [
-            { organization: "Google" },
-            { organization: "Microsoft" },
-            { organization: "Amazon" },
-          ],
-          selectedOrganizations: [],
-        };
-        const filteredJobs = getters.FILTERED_JOBS_BY_ORGANIZATIONS(state);
-        expect(filteredJobs).toEqual([
-          { organization: "Google" },
-          { organization: "Microsoft" },
-          { organization: "Amazon" },
-        ]);
-      });
-    });
-  });
   describe("UNIQUE_JOB_TYPES", () => {
     it("finds unique job types from list of jobs", () => {
       const state = {
@@ -64,42 +28,6 @@ describe("getters", () => {
       };
       const result = getters.UNIQUE_JOB_TYPES(state);
       expect(result).toEqual(new Set(["Intern", "Part-time", "Full-time"]));
-    });
-  });
-  describe("FILTERED_JOBS_BY_JOB_TYPES", () => {
-    it("identifies jobs that are associated with the given job types", () => {
-      const state = {
-        jobs: [
-          { jobType: "Full-Time" },
-          { jobType: "Intern" },
-          { jobType: "Part-time" },
-        ],
-        selectedJobTypes: ["Intern", "Part-time"],
-      };
-      const filteredJobs = getters.FILTERED_JOBS_BY_JOB_TYPES(state);
-      expect(filteredJobs).toEqual([
-        { jobType: "Intern" },
-        { jobType: "Part-time" },
-      ]);
-    });
-
-    describe("when the user has not selected any job type", () => {
-      it("should return all jobs", () => {
-        const state = {
-          jobs: [
-            { jobType: "Full-Time" },
-            { jobType: "Intern" },
-            { jobType: "Part-time" },
-          ],
-          selectedJobTypes: [],
-        };
-        const filteredJobs = getters.FILTERED_JOBS_BY_JOB_TYPES(state);
-        expect(filteredJobs).toEqual([
-          { jobType: "Full-Time" },
-          { jobType: "Intern" },
-          { jobType: "Part-time" },
-        ]);
-      });
     });
   });
   describe("INCLUDE_JOBS_BY_ORGANIZATION", () => {
