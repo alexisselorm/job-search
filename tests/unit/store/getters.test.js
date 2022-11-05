@@ -39,7 +39,7 @@ describe("getters", () => {
             { organization: "Microsoft" },
             { organization: "Amazon" },
           ],
-          selectedOrganizations: ["Google", "Microsoft"],
+          selectedOrganizations: [],
         };
         const filteredJobs = getters.FILTERED_JOBS_BY_ORGANIZATIONS(state);
         expect(filteredJobs).toEqual([
