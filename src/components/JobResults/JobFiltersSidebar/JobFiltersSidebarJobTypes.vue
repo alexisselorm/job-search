@@ -9,7 +9,7 @@
             class="w-1/2 h-8"
           >
             <input
-              :id="jobTypes"
+              :id="jobType"
               v-model="selectedJobTypes"
               :data-test="jobType"
               :value="jobType"
