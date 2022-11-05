@@ -9,8 +9,8 @@ const TeamsView = () =>
 
 const routes = [
   { path: "/", name: "home", component: HomeView },
-  { path: "/jobs/results/:id", name: "JobListing", component: JobView },
   { path: "/jobs/results", name: "JobResults", component: JobResultsView },
+  { path: "/jobs/results/:id", name: "JobListing", component: JobView },
   { path: "/teams", name: "Teams", component: TeamsView },
 ];
 
