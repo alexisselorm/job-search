@@ -15,15 +15,28 @@
 </template>
 
 <script>
-import { mapGetters } from "vuex";
-import { FILTERED_JOBS } from "@/store/constants";
+import { useRoute } from "vue-router";
+import { useStore } from "vuex";
+import { computed } from "vue";
+
 export default {
   name: "SubNav",
-  computed: {
-    ...mapGetters([FILTERED_JOBS]),
-    onJobResultspage() {
-      return this.$route.name === "JobResults";
-    },
+  // COMPOSITION API
+  setup() {
+    const store = useStore();
+    const FILTERED_JOBS = computed(() => store.getters.FILTERED_JOBS);
+    const route = useRoute();
+    const onJobResultspage = computed(() => route.name === "JobResults");
+    return { onJobResultspage, FILTERED_JOBS };
   },
+  // OPTIONS API
+  // import { mapGetters } from "vuex";
+  // import { FILTERED_JOBS } from "@/store/constants";
+  // computed: {
+  //   ...mapGetters([FILTERED_JOBS]),
+  //   onJobResultspage() {
+  //     return this.$route.name === "JobResults";
+  //   },
+  // },
 };
 </script>
