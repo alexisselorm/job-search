@@ -54,7 +54,7 @@
 // ];
 
 // console.log(jobs.filter((job) => job.organization === "Microsoft"));
-const { ref, reactive, computed, toRef } = require("vue");
+const { ref, reactive, computed, toRef, toRefs } = require("vue");
 // Number reactiivty
 let a = ref(1);
 let b = ref(2);
@@ -95,12 +95,23 @@ const person = reactive({
 
 // When we destructure an object we lose its reactivity.
 // const { firstName, lastName } = person;
-// To solve this problem, use the toRef method
+// To solve this problem, use the toRef method. It takes a reactive object as its first argument and a string representation of the property you would like to change
 const firstName = toRef(person, "firstName");
 const lastName = toRef(person, "lastName");
 
-let titlee = computed(() => `${firstName.value} ${lastName.value} the mighty!`);
+let titlee = computed(
+  () => `${firstName.value} ${lastName.value} the mighty! - toRef`
+);
 console.log(titlee.value);
+
+// ToRefs.Takes a reactive object and makes all individual properties in the object reactive
+const { firstName: first, lastName: last } = toRefs(person);
+
+let titles = computed(
+  () => `${first.value} ${last.value} the mighty! - toRefs`
+);
+console.log(titles.value);
+
 // const titleLength = computed(() => titlee.value.length);
 // console.log(titleLength.value);
 
