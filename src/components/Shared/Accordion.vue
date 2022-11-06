@@ -30,13 +30,14 @@ export default {
   // COMPOSITION API
   setup() {
     let isOpen = ref(false);
-    let caretIcon = computed(() =>
-      isOpen.value ? ["fas", "angle-up"] : ["fas", "angle-down"]
-    );
 
     const open = () => {
       isOpen.value = !isOpen.value;
     };
+    let caretIcon = computed(() =>
+      isOpen.value ? ["fas", "angle-up"] : ["fas", "angle-down"]
+    );
+
     return { open, isOpen, caretIcon };
   },
   // OPTIONS API
