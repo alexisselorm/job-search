@@ -1,7 +1,11 @@
 import { useStore } from "vuex";
 jest.mock("vuex");
 
-import { useFilteredJobs, useUniqueJobTypes } from "@/store/composables";
+import {
+  useFilteredJobs,
+  useUniqueJobTypes,
+  useUniqueOrganizations,
+} from "@/store/composables";
 
 describe("composables", () => {
   describe("useFilteredJobs", () => {
@@ -24,6 +28,17 @@ describe("composables", () => {
       });
       const result = useUniqueJobTypes();
       expect(result.value).toEqual(new Set(["Full-time"]));
+    });
+  });
+  describe("useUniqueOrganizations", () => {
+    it("retrieves unique job types from store", () => {
+      useStore.mockReturnValue({
+        getters: {
+          UNIQUE_ORGANIZATIONS: new Set(["Google"]),
+        },
+      });
+      const result = useUniqueOrganizations();
+      expect(result.value).toEqual(new Set(["Google"]));
     });
   });
 });
