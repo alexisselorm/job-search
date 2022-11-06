@@ -47,10 +47,65 @@
 // const filtered = numbers.filter((number) => number > 6);
 // console.log(filtered);
 
-const jobs = [
-  { title: "Angular Dev", organization: "Microsoft" },
-  { title: "Programmer", organization: "Google" },
-  { title: "Dever", organization: "Microsoft" },
-];
+// const jobs = [
+//   { title: "Angular Dev", organization: "Microsoft" },
+//   { title: "Programmer", organization: "Google" },
+//   { title: "Dever", organization: "Microsoft" },
+// ];
 
-console.log(jobs.filter((job) => job.organization === "Microsoft"));
+// console.log(jobs.filter((job) => job.organization === "Microsoft"));
+const { ref, reactive, computed, toRef } = require("vue");
+// Number reactiivty
+let a = ref(1);
+let b = ref(2);
+
+let c = computed(() => a.value + b.value);
+console.log(c.value);
+
+a.value = 10;
+console.log(c.value);
+
+b.value = 10;
+console.log(c.value);
+
+// String reactivity
+const name = ref("Alexis");
+let title = computed(() => name.value + " the Great");
+console.log(title.value);
+
+name.value = "Selorm";
+console.log(title.value);
+
+// Object Reactivity
+// const person = ref({
+//   name: "Alexis",
+// });
+
+// let titlee = computed(() => person.value.name + " the mighty!");
+// console.log(titlee.value);
+
+// person.value.name = "Selorm";
+// console.log(titlee.value);
+
+// Use reactive specifically for objects
+const person = reactive({
+  firstName: "Alexis",
+  lastName: "Gbeckor-Kove",
+});
+
+// When we destructure an object we lose its reactivity.
+// const { firstName, lastName } = person;
+// To solve this problem, use the toRef method
+const firstName = toRef(person, "firstName");
+const lastName = toRef(person, "lastName");
+
+let titlee = computed(() => `${firstName.value} ${lastName.value} the mighty!`);
+console.log(titlee.value);
+// const titleLength = computed(() => titlee.value.length);
+// console.log(titleLength.value);
+
+firstName.value = "Massimiliano";
+lastName.value = "Argento 'Killer Striker'";
+console.log(titlee.value);
+
+// Multiple layers of reactivity
