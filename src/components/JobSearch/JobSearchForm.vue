@@ -37,6 +37,8 @@
 </template>
 
 <script>
+import { ref } from "vue";
+import { useRouter } from "vue-router";
 import ActionButton from "../Shared/ActionButton.vue";
 import TextInput from "@/components/Shared/TextInput.vue";
 export default {
@@ -45,19 +47,35 @@ export default {
     ActionButton,
     TextInput,
   },
-  data() {
-    return {
-      role: "",
-      location: "",
-    };
-  },
-  methods: {
-    searchForJobs() {
-      this.$router.push({
+  // COMPOSITION API
+  setup() {
+    // Methods
+    const router = useRouter();
+    const searchForJobs = () => {
+      router.push({
         name: "JobResults",
-        query: { role: this.role, location: this.location },
+        query: { role: role.value, location: location.value },
       });
-    },
+    };
+    // Data
+    const role = ref("");
+    const location = ref("");
+    return { role, location, searchForJobs };
   },
+  // OPTIONS API
+  // data() {
+  //   return {
+  //     role: "",
+  //     location: "",
+  //   };
+  // },
+  // methods: {
+  //   searchForJobs() {
+  //     this.$router.push({
+  //       name: "JobResults",
+  //       query: { role: this.role, location: this.location },
+  //     });
+  //   },
+  // },
 };
 </script>
