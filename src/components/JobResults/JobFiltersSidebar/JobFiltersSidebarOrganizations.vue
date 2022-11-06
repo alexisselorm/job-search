@@ -4,7 +4,7 @@
       <fieldset>
         <ul class="flex flex-row flex-wrap">
           <li
-            v-for="organization in UNIQUE_ORGANIZATIONS"
+            v-for="organization in uniqueOrganizations"
             :key="organization"
             class="w-1/2 h-8"
           >
@@ -29,31 +29,44 @@
 
 <script>
 import Accordion from "@/components/Shared/Accordion.vue";
-import { mapGetters, mapMutations } from "vuex";
-import {
-  UNIQUE_ORGANIZATIONS,
-  ADD_SELECTED_ORGANIZATIONS,
-} from "@/store/constants";
+import { ref } from "vue";
+import { useStore } from "vuex";
+import { useRouter } from "vue-router";
+import { useUniqueOrganizations } from "@/store/composables";
+import { ADD_SELECTED_ORGANIZATIONS } from "@/store/constants";
 // import
 export default {
   name: "JobFiltersSidebarOrganizations",
   components: {
     Accordion,
   },
-  data() {
-    return {
-      selectedOrganizations: [],
+  setup() {
+    const router = useRouter();
+    const store = useStore();
+    const selectedOrganizations = ref([]);
+    const uniqueOrganizations = useUniqueOrganizations();
+
+    const selectOrganization = () => {
+      store.commit(ADD_SELECTED_ORGANIZATIONS, selectedOrganizations.value);
+      router.push({ name: "organizations" });
     };
+
+    return { selectOrganization, selectedOrganizations, uniqueOrganizations };
   },
-  computed: {
-    ...mapGetters([UNIQUE_ORGANIZATIONS]),
-  },
-  methods: {
-    ...mapMutations([ADD_SELECTED_ORGANIZATIONS]),
-    selectOrganization() {
-      this.ADD_SELECTED_ORGANIZATIONS(this.selectedOrganizations);
-      this.$router.push({ name: "JobResults" });
-    },
-  },
+  // data() {
+  //   return {
+  //     selectedOrganizations: [],
+  //   };
+  // },
+  // computed: {
+  //   ...mapGetters([UNIQUE_ORGANIZATIONS]),
+  // },
+  // methods: {
+  //   ...mapMutations([ADD_SELECTED_ORGANIZATIONS]),
+  //   selectOrganization() {
+  //     this.ADD_SELECTED_ORGANIZATIONS(this.selectedOrganizations);
+  //     this.$router.push({ name: "JobResults" });
+  //   },
+  // },
 };
 </script>

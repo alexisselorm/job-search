@@ -52,22 +52,5 @@ export default {
 
     return { selectedJobTypes, uniqueJobTypes, selectJobType };
   },
-  // options api
-
-  // data() {
-  //   return {
-  //     selectedJobTypes: [],
-  //   };
-  // },
-  // computed: {
-  //   ...mapGetters([UNIQUE_JOB_TYPES]),
-  // },
-  // methods: {
-  //   ...mapMutations([ADD_SELECTED_JOB_TYPES]),
-  //   selectJobType() {
-  //     this.ADD_SELECTED_JOB_TYPES(this.selectedJobTypes);
-  //     this.$router.push({ name: "JobResults" });
-  //   },
-  // },
 };
 </script>
