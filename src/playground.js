@@ -13,24 +13,6 @@
 // console.log(list.length);
 // console.log(0 % 4);
 
-// const axios = require("axios");
-
-// const url = "http://localhost:3000/jobs";
-// const fetchJobsv1 = () => {
-//   axios
-//     .get(url)
-//     .then((response) => console.log(response))
-//     .catch((reject) => console.log(reject.message));
-// };
-// fetchJobsv1();
-
-// const fetchJobsv2 = async () => {
-//   const result = await axios.get(url);
-//   console.log(result.data);
-// };
-
-// fetchJobsv2();
-
 // const sushi = [
 //   "Tuna",
 //   "Salmon",
@@ -93,7 +75,7 @@ const person = reactive({
   lastName: "Gbeckor-Kove",
 });
 
-// When we destructure an object we lose its reactivity.
+// When we destructure an object we lose its reactivity. i.e the individual properties themselves are not reactive
 // const { firstName, lastName } = person;
 // To solve this problem, use the toRef method. It takes a reactive object as its first argument and a string representation of the property you would like to change
 const firstName = toRef(person, "firstName");
