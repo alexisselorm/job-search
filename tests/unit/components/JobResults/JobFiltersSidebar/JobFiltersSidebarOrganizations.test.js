@@ -1,28 +1,24 @@
 import { mount } from "@vue/test-utils";
 import JobFiltersSidebarOrganizations from "@/components/JobResults/JobFiltersSidebar/JobFiltersSidebarOrganizations";
+import { useStore } from "vuex";
+jest.mock("vuex");
+
+import { useRouter } from "vue-router";
+jest.mock("vue-router");
+
+import { useUniqueOrganizations } from "@/store/composables";
+jest.mock("@/store/composables");
 describe("JobFiltersSidebarOrganizations", () => {
-  const createConfig = ($store, $router) => ({
+  const createConfig = () => ({
     global: {
-      mocks: {
-        $store,
-        $router,
-      },
       stubs: {
         FontAwesomeIcon: true,
       },
     },
   });
   it("renders a unique list of organiztions for filtering jobs", async () => {
-    const $store = {
-      getters: {
-        UNIQUE_ORGANIZATIONS: new Set(["Google", "Amazon"]),
-      },
-    };
-    const $router = { push: jest.fn() };
-    const wrapper = mount(
-      JobFiltersSidebarOrganizations,
-      createConfig($store, $router)
-    );
+    useUniqueOrganizations.mockReturnValue(new Set(["Google", "Amazon"]));
+    const wrapper = mount(JobFiltersSidebarOrganizations, createConfig());
 
     const clickableArea = wrapper.find("[data-test='clickable-area']");
     await clickableArea.trigger("click");
@@ -32,19 +28,12 @@ describe("JobFiltersSidebarOrganizations", () => {
   });
   describe("when user clicks checkkbox", () => {
     it("communicates that user has selected checkbox for organization", async () => {
+      useUniqueOrganizations.mockReturnValue(new Set(["Google", "Amazon"]));
+
       const commit = jest.fn();
-      const $store = {
-        getters: {
-          UNIQUE_ORGANIZATIONS: new Set(["Google", "Amazon"]),
-        },
-        commit,
-      };
-      const push = jest.fn();
-      const $router = { push };
-      const wrapper = mount(
-        JobFiltersSidebarOrganizations,
-        createConfig($store, $router)
-      );
+      useStore.mockReturnValue({ commit });
+      useRouter.mockReturnValue({ push: jest.fn() });
+      const wrapper = mount(JobFiltersSidebarOrganizations, createConfig());
       const clickableArea = wrapper.find("[data-test='clickable-area']");
       await clickableArea.trigger("click");
       const googleInput = wrapper.find("[data-test='Google']");
@@ -54,19 +43,11 @@ describe("JobFiltersSidebarOrganizations", () => {
       ]);
     });
     it("navigates user to job page for fresh job results", async () => {
-      const $store = {
-        getters: {
-          UNIQUE_ORGANIZATIONS: new Set(["Google", "Amazon"]),
-        },
-        commit: jest.fn(),
-      };
+      useUniqueOrganizations.mockReturnValue(new Set(["Google", "Amazon"]));
+      useStore.mockReturnValue({ commit: jest.fn() });
       const push = jest.fn();
-
-      const $router = { push };
-      const wrapper = mount(
-        JobFiltersSidebarOrganizations,
-        createConfig($store, $router)
-      );
+      useRouter.mockReturnValue({ push });
+      const wrapper = mount(JobFiltersSidebarOrganizations, createConfig());
       const clickableArea = wrapper.find("[data-test='clickable-area']");
       await clickableArea.trigger("click");
       const googleInput = wrapper.find("[data-test='Google']");

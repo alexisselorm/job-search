@@ -48,7 +48,7 @@ export default {
 
     const selectOrganization = () => {
       store.commit(ADD_SELECTED_ORGANIZATIONS, selectedOrganizations.value);
-      router.push({ name: "organizations" });
+      router.push({ name: "JobResults" });
     };
 
     return { selectOrganization, selectedOrganizations, uniqueOrganizations };
