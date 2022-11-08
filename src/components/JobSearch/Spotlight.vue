@@ -12,23 +12,40 @@
 </template>
 
 <script>
+import { ref, onMounted } from "vue";
 import axios from "axios";
 export default {
   // eslint-disable-next-line vue/multi-word-component-names
   name: "Spotlight",
-  data() {
-    return {
-      spotlights: [],
+  setup() {
+    const spotlights = ref([]);
+    const getSpotlights = async () => {
+      try {
+        const baseUrl = process.env.VUE_APP_API_URL;
+        const response = await axios.get(`${baseUrl}/spotlights`);
+        spotlights.value = response.data;
+      } catch (error) {
+        throw new Error("Backend may not be running or responding", error);
+      }
     };
+    // Use onMounted to actually run our function to get the spotlights from the backend
+    onMounted(getSpotlights);
+
+    return { spotlights };
   },
-  async mounted() {
-    try {
-      const baseUrl = process.env.VUE_APP_API_URL;
-      const response = await axios.get(`${baseUrl}/spotlights`);
-      this.spotlights = response.data;
-    } catch (error) {
-      throw new Error("Backend may not be running or responding", error);
-    }
-  },
+  // data() {
+  //   return {
+  //     spotlights: [],
+  //   };
+  // },
+  // async mounted() {
+  //   try {
+  //     const baseUrl = process.env.VUE_APP_API_URL;
+  //     const response = await axios.get(`${baseUrl}/spotlights`);
+  //     this.spotlights = response.data;
+  //   } catch (error) {
+  //     throw new Error("Backend may not be running or responding", error);
+  //   }
+  // },
 };
 </script>
