@@ -33,46 +33,54 @@
 </template>
 
 <script>
-import { mapGetters, mapActions } from "vuex";
-import { FETCH_JOBS, FILTERED_JOBS } from "@/store/constants";
+import { onMounted, computed } from "vue";
+import { useStore } from "vuex";
+import { useRoute } from "vue-router";
+
+import { useFilteredJobs } from "@/store/composables";
+import { FETCH_JOBS } from "@/store/constants";
 import JobListing from "@/components/JobResults/JobListing.vue";
 export default {
   name: "JobListings",
   components: {
     JobListing,
   },
-  computed: {
-    ...mapGetters([FILTERED_JOBS]),
+  setup() {
+    const store = useStore();
+    store.dispatch(FETCH_JOBS);
+    const fetchJobs = () => store.dispatch(FETCH_JOBS);
+    onMounted(fetchJobs);
 
-    previousPage() {
-      const previousPage = this.currentPage - 1;
+    const filteredJobs = useFilteredJobs();
+    const route = useRoute();
+
+    const currentPage = computed(() =>
+      Number.parseInt(route.query.page || "1")
+    );
+    const previousPage = computed(() => {
+      const previousPage = currentPage.value - 1;
       const firstPage = 1;
       return previousPage >= firstPage ? previousPage : undefined;
-    },
-    nextPage() {
-      const nextPage = this.currentPage + 1;
-      const maxPage = Math.ceil(this.FILTERED_JOBS.length / 10);
+    });
+
+    const nextPage = computed(() => {
+      const nextPage = currentPage.value + 1;
+      const maxPage = Math.ceil(filteredJobs.value.length / 10);
       return nextPage <= maxPage ? nextPage : undefined;
-    },
-    currentPage() {
-      const pageString = this.$route.query.page || "1";
-      return Number.parseInt(pageString);
-    },
-    displayedJobs() {
-      const pageNumber = this.currentPage;
+    });
+    const displayedJobs = computed(() => {
+      const pageNumber = currentPage.value;
       const firstJobIndex = (pageNumber - 1) * 10;
       const lastJobIndex = pageNumber * 10;
       // This filtered jobs array is coming from the mapGetters helper function, which has our jobs array that was populated by the FETCH_JOBS action and filtered by the FILTERED_JOBS_BY_ORGANIZATION getter,and we're slicing them in chunks of 10 based on the page we're currently on
-      return this.FILTERED_JOBS.slice(firstJobIndex, lastJobIndex);
-    },
-    // ...mapState(["jobs"]),
-  },
-  async mounted() {
-    // The action that actually triggers our api request
-    this.FETCH_JOBS();
-  },
-  methods: {
-    ...mapActions([FETCH_JOBS]),
+      return filteredJobs.value.slice(firstJobIndex, lastJobIndex);
+    });
+    return {
+      previousPage,
+      nextPage,
+      displayedJobs,
+      currentPage,
+    };
   },
 };
 </script>
