@@ -1,3 +1,4 @@
+import { Job } from "@/api/types";
 import {
   LOGIN_USER,
   RECEIVE_JOBS,
@@ -5,19 +6,21 @@ import {
   ADD_SELECTED_JOB_TYPES,
 } from "@/store/constants";
 
+import { GlobalState } from "@/store/types";
+
 const mutations = {
-  [LOGIN_USER](state) {
+  [LOGIN_USER](state: GlobalState) {
     state.isLoggedIn = true;
   },
-  [RECEIVE_JOBS](state, jobs) {
+  [RECEIVE_JOBS](state: GlobalState, jobs: Job[]) {
     // Take the current jobs 'state' (which is empty) and override it with the new array of jobs received from the backend
     state.jobs = jobs;
   },
-  [ADD_SELECTED_ORGANIZATIONS](state, organizations) {
+  [ADD_SELECTED_ORGANIZATIONS](state: GlobalState, organizations: string[]) {
     // Take the current selected organizations 'state' and override it with the new array of strings received represented by 'organizations'
     state.selectedOrganizations = organizations;
   },
-  [ADD_SELECTED_JOB_TYPES](state, jobTypes) {
+  [ADD_SELECTED_JOB_TYPES](state: GlobalState, jobTypes: string[]) {
     state.selectedJobTypes = jobTypes;
   },
 };
