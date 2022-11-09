@@ -1,5 +1,5 @@
 export interface Job {
-  id: string;
+  id: number;
   title: string;
   organization: string;
   degree: string;
