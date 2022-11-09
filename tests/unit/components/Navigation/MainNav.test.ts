@@ -1,5 +1,5 @@
 import { shallowMount } from "@vue/test-utils";
-import MainNav from "@/components/Navigation/MainNav";
+import MainNav from "@/components/Navigation/MainNav.vue";
 import createConfig from "@/utils/mainNavStub";
 
 describe("MainNav", () => {
