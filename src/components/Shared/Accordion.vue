@@ -16,9 +16,9 @@
   </div>
 </template>
 
-<script>
-import { computed, ref } from "vue";
-export default {
+<script lang="ts">
+import { computed, defineComponent, ref } from "vue";
+export default defineComponent({
   // eslint-disable-next-line vue/multi-word-component-names
   name: "Accordion",
   props: {
@@ -40,21 +40,5 @@ export default {
 
     return { open, isOpen, caretIcon };
   },
-  // OPTIONS API
-  // data() {
-  //   return {
-  //     isOpen: false,
-  //   };
-  // },
-  // computed: {
-  //   caretIcon() {
-  //     return this.isOpen ? ["fas", "angle-up"] : ["fas", "angle-down"];
-  //   },
-  // },
-  // methods: {
-  //   open() {
-  //     this.isOpen = !this.isOpen;
-  //   },
-  // },
-};
+});
 </script>
