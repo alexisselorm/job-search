@@ -11,20 +11,27 @@
   </ul>
 </template>
 
-<script>
-import { ref, onMounted } from "vue";
+<script lang="ts">
+import { ref, onMounted, defineComponent } from "vue";
 import axios from "axios";
-export default {
+
+interface Spotlight {
+  id: number;
+  img: string;
+  title: string;
+  description: string;
+}
+export default defineComponent({
   // eslint-disable-next-line vue/multi-word-component-names
   name: "Spotlight",
   setup() {
-    const spotlights = ref([]);
+    const spotlights = ref<Spotlight[]>([]);
     const getSpotlights = async () => {
       try {
         const baseUrl = process.env.VUE_APP_API_URL;
-        const response = await axios.get(`${baseUrl}/spotlights`);
+        const response = await axios.get<Spotlight[]>(`${baseUrl}/spotlights`);
         spotlights.value = response.data;
-      } catch (error) {
+      } catch (error: any) {
         throw new Error("Backend may not be running or responding", error);
       }
     };
@@ -47,5 +54,5 @@ export default {
   //     throw new Error("Backend may not be running or responding", error);
   //   }
   // },
-};
+});
 </script>
