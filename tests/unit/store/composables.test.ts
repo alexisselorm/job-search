@@ -8,10 +8,12 @@ import {
   useFetchJobsDispatch,
 } from "@/store/composables";
 
+const useStoreMock = useStore as jest.Mock;
+
 describe("composables", () => {
   describe("useFilteredJobs", () => {
     it("retrieves filtered jobs from store", () => {
-      useStore.mockReturnValue({
+      useStoreMock.mockReturnValue({
         getters: {
           FILTERED_JOBS: [{ id: 1 }],
         },
@@ -22,7 +24,7 @@ describe("composables", () => {
   });
   describe("useUniqueJobTypes", () => {
     it("retrieves unique job types from store", () => {
-      useStore.mockReturnValue({
+      useStoreMock.mockReturnValue({
         getters: {
           UNIQUE_JOB_TYPES: new Set(["Full-time"]),
         },
@@ -33,7 +35,7 @@ describe("composables", () => {
   });
   describe("useUniqueOrganizations", () => {
     it("retrieves unique job types from store", () => {
-      useStore.mockReturnValue({
+      useStoreMock.mockReturnValue({
         getters: {
           UNIQUE_ORGANIZATIONS: new Set(["Google"]),
         },
@@ -45,7 +47,7 @@ describe("composables", () => {
   describe("useFetchJobsDispatch", () => {
     it("sends call to fetch jobs from api", () => {
       const dispatch = jest.fn();
-      useStore.mockReturnValue({
+      useStoreMock.mockReturnValue({
         dispatch,
       });
       useFetchJobsDispatch();
