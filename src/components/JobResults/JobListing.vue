@@ -49,19 +49,17 @@
   </li>
 </template>
 
-<script>
-import { computed } from "vue";
-export default {
+<script lang="ts">
+import { computed, defineComponent, PropType } from "vue";
+import { Job } from "@/api/types";
+export default defineComponent({
   name: "JobListing",
   props: {
-    job: {
-      type: Object,
-      required: true,
-    },
+    job: { type: Object as PropType<Job>, required: true },
   },
   setup(props) {
     const jobPageLink = computed(() => `/jobs/results/${props.job.id}`);
     return { jobPageLink };
   },
-};
+});
 </script>
