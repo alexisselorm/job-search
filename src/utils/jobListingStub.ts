@@ -7,7 +7,7 @@ const jobListingStub = (job: Job) => ({
     stubs: { "router-link": RouterLinkStub },
   },
   props: {
-    ...job,
+    job,
   },
 });
 

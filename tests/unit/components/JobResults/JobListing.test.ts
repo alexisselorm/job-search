@@ -2,13 +2,11 @@ import { mount, RouterLinkStub } from "@vue/test-utils";
 
 import JobListing from "@/components/JobResults/JobListing.vue";
 import jobListingStub from "@/utils/jobListingStub";
-import { createJob } from "tests/unit/store/utils";
+import { createJob } from "../../store/utils";
 
 describe("JobListing", () => {
   it("renders job title", () => {
-    const job = createJob({
-      title: "Vue Developer",
-    });
+    const job = createJob({ title: "Vue Developer" });
     const wrapper = mount(JobListing, jobListingStub(job));
     expect(wrapper.text()).toMatch("Vue Developer");
   });
