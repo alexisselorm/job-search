@@ -20,7 +20,7 @@ export const createJob = (config: Partial<Job> = {}): Job => ({
   ...config,
 });
 
-export const createDegree = (config: Partial<GlobalState> = {}): Degree => ({
+export const createDegree = (config: Partial<Degree> = {}): Degree => ({
   id: 1,
   degree: "Master's",
   ...config,

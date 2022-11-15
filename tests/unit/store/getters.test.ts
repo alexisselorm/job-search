@@ -1,8 +1,8 @@
 import getters from "@/store/getters";
-import { createJob, createState } from "./utils";
+import { createDegree, createJob, createState } from "./utils";
 
 describe("getters", () => {
-  describe("UNIQUE_JobTypes", () => {
+  describe("UNIQUE_ORGANIZATIONS", () => {
     it("finds unique organizations from list of jobs", () => {
       const jobs = [
         // Double google entry because I need to confirm the set method really works and everything is unique
@@ -13,6 +13,18 @@ describe("getters", () => {
       const state = createState({ jobs });
       const result = getters.UNIQUE_ORGANIZATIONS(state);
       expect(result).toEqual(new Set(["Google", "Amazon"]));
+    });
+  });
+  describe("UNIQUE_DEGREES", () => {
+    it("finds unique degrees from list of jobs", () => {
+      const degrees = [
+        // Double google entry because I need to confirm the set method really works and everything is unique
+        createDegree({ degree: "Master's" }),
+        createDegree({ degree: "Bachelor's" }),
+      ];
+      const state = createState({ degrees });
+      const result = getters.UNIQUE_DEGREES(state);
+      expect(result).toEqual(["Master's", "Bachelor's"]);
     });
   });
   describe("UNIQUE_JOB_TYPES", () => {
