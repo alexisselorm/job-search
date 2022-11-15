@@ -50,7 +50,7 @@ describe("mutations", () => {
     it("updates degrees that the user has chosen to filter jobs by", () => {
       const startingState = createState({ selectedDegrees: [] });
       mutations.ADD_SELECTED_DEGREES(startingState, ["Ph.D", "Associate"]);
-      expect(startingState.selectedJobTypes).toEqual(["Ph.D", "Associate"]);
+      expect(startingState.selectedDegrees).toEqual(["Ph.D", "Associate"]);
     });
   });
 });
