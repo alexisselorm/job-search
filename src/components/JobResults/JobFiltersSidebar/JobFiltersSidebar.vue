@@ -9,9 +9,9 @@
           <ActionButton text="Clear Filters" type="secondary" />
         </div>
       </div>
-      <Accordion header="Degree">
-        <!-- If I don't specify anything here, the fallback text in the Accordion will fire -->
-      </Accordion>
+      <!-- <Accordion header="Degree"> -->
+      <!-- If I don't specify anything here, the fallback text in the Accordion will fire -->
+      <!-- </Accordion> -->
       <JobFiltersSidebarCheckboxGroup
         header="Degrees"
         :unique-values="uniqueDegrees"
@@ -37,7 +37,7 @@
 </template>
 <script lang="ts">
 import ActionButton from "@/components/Shared/ActionButton.vue";
-import Accordion from "@/components/Shared/Accordion.vue";
+// import Accordion from "@/components/Shared/Accordion.vue";
 import JobFiltersSidebarCheckboxGroup from "@/components/JobResults/JobFiltersSidebar/JobFiltersSidebarCheckboxGroup.vue";
 
 import {
@@ -55,7 +55,7 @@ export default defineComponent({
   name: "JobResultsSidebar",
   components: {
     ActionButton,
-    Accordion,
+    // Accordion,
     JobFiltersSidebarCheckboxGroup,
   },
   setup() {
