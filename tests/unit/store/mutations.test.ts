@@ -22,9 +22,8 @@ describe("mutations", () => {
     it("receives degrees from API response", () => {
       const startingState = createState({ degrees: [] });
       const degreeOne = createDegree();
-      const degreeTwo = createDegree();
-      mutations.RECEIVE_DEGREES(startingState, [degreeOne, degreeTwo]);
-      expect(startingState.degrees).toEqual([degreeOne, degreeTwo]);
+      mutations.RECEIVE_DEGREES(startingState, [degreeOne]);
+      expect(startingState.degrees).toEqual([degreeOne]);
     });
   });
   describe("ADD_SELECTED_ORGANIZATIONS", () => {

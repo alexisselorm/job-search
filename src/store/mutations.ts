@@ -18,7 +18,7 @@ const mutations = {
     state.jobs = jobs;
   },
   [RECEIVE_DEGREES](state: GlobalState, degrees: Degree[]) {
-    // Take the current jobs 'state' (which is empty) and override it with the new array of jobs received from the backend
+    // Take the current degrees 'state' (which is empty) and override it with the new array of degrees received from the backend
     state.degrees = degrees;
   },
   [ADD_SELECTED_ORGANIZATIONS](state: GlobalState, organizations: string[]) {

@@ -5,7 +5,9 @@ export const ADD_SELECTED_ORGANIZATIONS = "ADD_SELECTED_ORGANIZATIONS";
 export const ADD_SELECTED_JOB_TYPES = "ADD_SELECTED_JOB_TYPES";
 export const RECEIVE_DEGREES = "RECEIVE_DEGREES";
 // Actions
+
 export const FETCH_JOBS = "FETCH_JOBS";
+export const FETCH_DEGREES = "FETCH_DEGREES";
 
 // Getters - We use getters whenever we want Vue to automatically rerun a bit of logic when some other core data changes
 export const UNIQUE_ORGANIZATIONS = "UNIQUE_ORGANIZATIONS";
