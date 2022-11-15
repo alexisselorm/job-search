@@ -27,7 +27,7 @@ describe("mutations", () => {
     });
   });
   describe("ADD_SELECTED_ORGANIZATIONS", () => {
-    it("updates organizations that the user has chose to filter jobs by", () => {
+    it("updates organizations that the user has chosen to filter jobs by", () => {
       const startingState = createState({ selectedOrganizations: [] });
       mutations.ADD_SELECTED_ORGANIZATIONS(startingState, ["Amazon", "Google"]);
       expect(startingState.selectedOrganizations).toEqual(["Amazon", "Google"]);
@@ -44,6 +44,13 @@ describe("mutations", () => {
         "Full-time",
         "Part-time",
       ]);
+    });
+  });
+  describe("ADD_SELECTED_DEGREES", () => {
+    it("updates degrees that the user has chosen to filter jobs by", () => {
+      const startingState = createState({ selectedDegrees: [] });
+      mutations.ADD_SELECTED_DEGREES(startingState, ["Ph.D", "Associate"]);
+      expect(startingState.selectedJobTypes).toEqual(["Ph.D", "Associate"]);
     });
   });
 });

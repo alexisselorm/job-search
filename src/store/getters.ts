@@ -15,9 +15,10 @@ import { Job } from "@/api/types";
 
 interface IncludeJobGetters {
   // These methods are not to be confused with the actual getters in this file
-  // These are methods that infer that getters has two methods that returns a boolean, just like the filter function does
+  // These are methods that infer that getters has methods that returns a boolean, just like the filter function does
   INCLUDE_JOB_BY_ORGANIZATION: (job: Job) => boolean;
   INCLUDE_JOB_BY_JOB_TYPE: (job: Job) => boolean;
+  INCLUDE_JOB_BY_DEGREE: (job: Job) => boolean;
 }
 
 const getters = {
@@ -50,7 +51,8 @@ const getters = {
   [FILTERED_JOBS](state: GlobalState, getters: IncludeJobGetters) {
     return state.jobs
       .filter((job) => getters.INCLUDE_JOB_BY_ORGANIZATION(job))
-      .filter((job) => getters.INCLUDE_JOB_BY_JOB_TYPE(job));
+      .filter((job) => getters.INCLUDE_JOB_BY_JOB_TYPE(job))
+      .filter((job) => getters.INCLUDE_JOB_BY_DEGREE(job));
   },
 };
 
