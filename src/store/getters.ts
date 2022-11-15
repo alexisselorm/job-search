@@ -34,6 +34,7 @@ const getters = {
     return state.degrees.map((degree) => degree.degree);
   },
   [INCLUDE_JOB_BY_ORGANIZATION]: (state: GlobalState) => (job: Job) => {
+    // If user has not seleted any organization, show all jobs
     if (state.selectedOrganizations.length === 0) return true;
     return state.selectedOrganizations.includes(job.organization);
   },
