@@ -36,12 +36,12 @@
   </form>
 </template>
 
-<script>
-import { ref } from "vue";
+<script lang="ts">
+import { defineComponent, ref } from "vue";
 import { useRouter } from "vue-router";
 import ActionButton from "../Shared/ActionButton.vue";
 import TextInput from "@/components/Shared/TextInput.vue";
-export default {
+export default defineComponent({
   name: "JobSearchForm",
   components: {
     ActionButton,
@@ -62,20 +62,5 @@ export default {
     const location = ref("");
     return { role, location, searchForJobs };
   },
-  // OPTIONS API
-  // data() {
-  //   return {
-  //     role: "",
-  //     location: "",
-  //   };
-  // },
-  // methods: {
-  //   searchForJobs() {
-  //     this.$router.push({
-  //       name: "JobResults",
-  //       query: { role: this.role, location: this.location },
-  //     });
-  //   },
-  // },
-};
+});
 </script>
