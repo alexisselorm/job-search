@@ -2,13 +2,14 @@
   <hero />
 </template>
 
-<script>
-// @ is an alias to /src
-import Hero from "@/components/JobSearch/Hero";
-export default {
+<script lang="ts">
+import Hero from "@/components/JobSearch/Hero.vue";
+import { defineComponent } from "vue";
+
+export default defineComponent({
   name: "HomeView",
   components: {
     Hero,
   },
-};
+});
 </script>
