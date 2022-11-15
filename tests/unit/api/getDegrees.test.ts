@@ -1,22 +1,22 @@
 import axios from "axios";
 jest.mock("axios");
 
-import getJobs from "@/api/getJobs";
+import getDegrees from "@/api/getDegrees";
 const axiosGetMock = axios.get as jest.Mock;
 
-describe("getJobs", () => {
+describe("getDegrees", () => {
   beforeEach(() => {
     axiosGetMock.mockResolvedValue({
-      data: [{ id: 1, title: "Java Engineer" }],
+      data: [{ id: 1, degree: "Master's" }],
     });
   });
-  it("fetches jobs that candidates can apply to", async () => {
-    await getJobs();
-    expect(axios.get).toHaveBeenCalledWith("http://mytestapi.com/jobs");
+  it("fetches all possible degree requirements", async () => {
+    await getDegrees();
+    expect(axios.get).toHaveBeenCalledWith("http://mytestapi.com/degrees");
   });
 
-  it("extracts jobs from response", async () => {
-    const data = await getJobs();
-    expect(data).toEqual([{ id: 1, title: "Java Engineer" }]);
+  it("extracts degrees from response", async () => {
+    const data = await getDegrees();
+    expect(data).toEqual([{ id: 1, title: "Master's" }]);
   });
 });
