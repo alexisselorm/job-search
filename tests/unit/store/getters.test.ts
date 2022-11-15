@@ -86,27 +86,29 @@ describe("getters", () => {
         const state = createState({
           selectedDegrees: [],
         });
-        const job = createDegree({ degree: "Master's" });
-        const includeDegree = getters.INCLUDE_JOB_BY_DEGREE(state)(job);
-        expect(includeDegree).toBe(true);
+        const job = createJob({ degree: "Master's" });
+        const includeJob = getters.INCLUDE_JOB_BY_DEGREE(state)(job);
+        expect(includeJob).toBe(true);
       });
     });
     it("identifies if job is associated with given degrees", () => {
       const state = createState({
         selectedDegrees: ["Ph.D", "Associate"],
       });
-      const job = createDegree({ degree: "Associate" });
+      const job = createJob({ degree: "Associate" });
       const includeJob = getters.INCLUDE_JOB_BY_DEGREE(state)(job);
       expect(includeJob).toBe(true);
     });
   });
   describe("FILTERED_JOBS", () => {
-    it("filters jobs by organizations and job types", () => {
+    it("filters jobs by organizations, job types, and degree", () => {
       const INCLUDE_JOB_BY_ORGANIZATION = jest.fn().mockReturnValue(true);
       const INCLUDE_JOB_BY_JOB_TYPE = jest.fn().mockReturnValue(true);
+      const INCLUDE_JOB_BY_DEGREE = jest.fn().mockReturnValue(true);
       const mockGetters = {
         INCLUDE_JOB_BY_ORGANIZATION,
         INCLUDE_JOB_BY_JOB_TYPE,
+        INCLUDE_JOB_BY_DEGREE,
       };
       const job = createJob({ title: "Best" });
       const state = createState({
@@ -116,6 +118,7 @@ describe("getters", () => {
       expect(result).toEqual([job]);
       expect(INCLUDE_JOB_BY_ORGANIZATION).toHaveBeenCalledWith(job);
       expect(INCLUDE_JOB_BY_JOB_TYPE).toHaveBeenCalledWith(job);
+      expect(INCLUDE_JOB_BY_DEGREE).toHaveBeenCalledWith(job);
     });
   });
 });
