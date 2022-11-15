@@ -4,6 +4,7 @@ import {
   FILTERED_JOBS,
   UNIQUE_JOB_TYPES,
   UNIQUE_ORGANIZATIONS,
+  UNIQUE_DEGREES,
   FETCH_JOBS,
 } from "@/store/constants";
 
@@ -24,6 +25,10 @@ export const useUniqueJobTypes = () => {
 export const useUniqueOrganizations = () => {
   const store = useStore(key);
   return computed<Set<string>>(() => store.getters[UNIQUE_ORGANIZATIONS]);
+};
+export const useUniqueDegrees = () => {
+  const store = useStore(key);
+  return computed<string[]>(() => store.getters[UNIQUE_DEGREES]);
 };
 
 // ACTIONS
