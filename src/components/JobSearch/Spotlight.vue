@@ -32,7 +32,7 @@ export default defineComponent({
         const response = await axios.get<Spotlight[]>(`${baseUrl}/spotlights`);
         spotlights.value = response.data;
       } catch (error: any) {
-        throw new Error("Backend may not be running or responding", error);
+        throw new Error(`Backend may not be running or responding, ${error}`);
       }
     };
     // Use onMounted to actually run our function to get the spotlights from the backend
