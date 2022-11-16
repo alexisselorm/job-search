@@ -13,29 +13,33 @@
           />
         </div>
       </div>
-      <!-- <Accordion header="Degree"> -->
-      <!-- If I don't specify anything here, the fallback text in the Accordion will fire -->
-      <!-- </Accordion> -->
-      <JobFiltersSidebarCheckboxGroup
-        header="Degrees"
-        :unique-values="uniqueDegrees"
-        :mutation="ADD_SELECTED_DEGREES"
-        data-test="degrees-filter"
-      />
+      <Accordion header="Skills">
+        -->
+        <!-- If I don't specify anything here, the fallback text in the Accordion will fire -->
+      </Accordion>
+      <Accordion header="Degrees">
+        <JobFiltersSidebarCheckboxGroup
+          :unique-values="uniqueDegrees"
+          :mutation="ADD_SELECTED_DEGREES"
+          data-test="degrees-filter"
+        />
+      </Accordion>
       <!-- <JobFiltersSidebarJobTypes /> -->
-      <JobFiltersSidebarCheckboxGroup
-        header="Job Types"
-        :unique-values="uniqueJobTypes"
-        :mutation="ADD_SELECTED_JOB_TYPES"
-        data-test="job-types-filter"
-      />
+      <Accordion header="Job Types">
+        <JobFiltersSidebarCheckboxGroup
+          :unique-values="uniqueJobTypes"
+          :mutation="ADD_SELECTED_JOB_TYPES"
+          data-test="job-types-filter"
+        />
+      </Accordion>
 
-      <JobFiltersSidebarCheckboxGroup
-        header="Organizations"
-        :unique-values="uniqueOrganizations"
-        :mutation="ADD_SELECTED_ORGANIZATIONS"
-        data-test="organiztions-filter"
-      />
+      <Accordion header="Organizations">
+        <JobFiltersSidebarCheckboxGroup
+          :unique-values="uniqueOrganizations"
+          :mutation="ADD_SELECTED_ORGANIZATIONS"
+          data-test="organiztions-filter"
+        />
+      </Accordion>
     </section>
   </div>
 </template>
@@ -43,7 +47,7 @@
 import ActionButton from "@/components/Shared/ActionButton.vue";
 import { key } from "@/store";
 import { useStore } from "vuex";
-// import Accordion from "@/components/Shared/Accordion.vue";
+import Accordion from "@/components/Shared/Accordion.vue";
 import JobFiltersSidebarCheckboxGroup from "@/components/JobResults/JobFiltersSidebar/JobFiltersSidebarCheckboxGroup.vue";
 
 import {
@@ -62,7 +66,7 @@ export default defineComponent({
   name: "JobResultsSidebar",
   components: {
     ActionButton,
-    // Accordion,
+    Accordion,
     JobFiltersSidebarCheckboxGroup,
   },
   setup() {
