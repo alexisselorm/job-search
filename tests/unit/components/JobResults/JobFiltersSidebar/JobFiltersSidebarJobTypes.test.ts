@@ -14,9 +14,9 @@ describe("JobFiltersSidebarJobTypes", () => {
       name: "JobFiltersSidebarCheckboxGroup",
     });
     console.log(jobTypesFilter.props());
-    const { uniquevalues, mutation } = jobTypesFilter.props();
-    console.log(uniquevalues);
-    expect(uniquevalues).toEqual(new Set(["Full-time", "Intern"]));
+    const { uniqueValues, mutation } = jobTypesFilter.props();
+    console.log(uniqueValues);
+    expect(uniqueValues).toEqual(new Set(["Full-time", "Intern"]));
     expect(mutation).toBe("ADD_SELECTED_JOB_TYPES");
   });
 });
