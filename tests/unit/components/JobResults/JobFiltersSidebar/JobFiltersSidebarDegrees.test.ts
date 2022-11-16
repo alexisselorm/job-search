@@ -8,13 +8,13 @@ import JobFiltersSidebarDegrees from "@/components/JobResults/JobFiltersSidebar/
 
 describe("JobFiltersSidebarDegrees", () => {
   it("allows users to filter  by degree", () => {
-    useUniqueDegreesMock.mockReturnValue(new Set(["AirBnB", "Google"]));
+    useUniqueDegreesMock.mockReturnValue(new Set(["Associate", "Master's"]));
     const wrapper = shallowMount(JobFiltersSidebarDegrees);
     const DegreesFilter = wrapper.findComponent({
       name: "JobFiltersSidebarCheckboxGroup",
     });
     const { uniqueValues, mutation } = DegreesFilter.props();
-    expect(uniqueValues).toEqual(new Set(["AirBnB", "Google"]));
+    expect(uniqueValues).toEqual(new Set(["Associate", "Master's"]));
     expect(mutation).toBe("ADD_SELECTED_DEGREES");
   });
 });
