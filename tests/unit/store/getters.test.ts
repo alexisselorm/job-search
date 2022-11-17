@@ -108,6 +108,20 @@ describe("getters", () => {
       const includeJob = getters.INCLUDE_JOB_BY_SKILL(state)(job);
       expect(includeJob).toBe(true);
     });
+    it("handles inconsistent character casing", () => {
+      const state = createState({ skillsSearchTerm: "vuE" });
+      const job = createJob({ title: "Vue Developer" });
+      const includeJob = getters.INCLUDE_JOB_BY_SKILL(state)(job);
+      expect(includeJob).toBe(true);
+    });
+    describe("when the user has not entered any skill", () => {
+      it("includes job", () => {
+        const state = createState({ skillsSearchTerm: "" });
+        const job = createJob({ title: "Vue Developer" });
+        const includeJob = getters.INCLUDE_JOB_BY_SKILL(state)(job);
+        expect(includeJob).toBe(true);
+      });
+    });
   });
   describe("FILTERED_JOBS", () => {
     it("filters jobs by organizations, job types, and degree", () => {
