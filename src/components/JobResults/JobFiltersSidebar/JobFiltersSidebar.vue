@@ -23,13 +23,17 @@
   </div>
 </template>
 <script lang="ts">
+import { defineComponent, onMounted } from "vue";
+import { useStore } from "vuex";
+import { key } from "@/store";
+import { UPDATE_SKILLS_SEARCH_TERM } from "@/store/constants";
+import { useRoute } from "vue-router";
 import Accordion from "@/components/Shared/Accordion.vue";
 import JobFiltersSidebarDegrees from "./JobFiltersSidebarDegrees.vue";
 import JobFiltersSidebarJobTypes from "./JobFiltersSidebarJobTypes.vue";
 import JobFiltersSidebarOrganizations from "./JobFiltersSidebarOrganizations.vue";
 import JobFiltersSidebarSkills from "./JobFiltersSidebarSkills.vue";
 import JobFiltersSidebarPrompt from "./JobFiltersSidebarPrompt.vue";
-import { defineComponent } from "vue";
 export default defineComponent({
   name: "JobResultsSidebar",
   components: {
@@ -39,6 +43,16 @@ export default defineComponent({
     JobFiltersSidebarDegrees,
     JobFiltersSidebarJobTypes,
     JobFiltersSidebarOrganizations,
+  },
+  setup() {
+    const parseSkillsSearchTerm = () => {
+      const route = useRoute();
+      const role = route.query.role || "";
+      const store = useStore(key);
+      store.commit(UPDATE_SKILLS_SEARCH_TERM, role);
+    };
+
+    onMounted(parseSkillsSearchTerm);
   },
 });
 </script>
