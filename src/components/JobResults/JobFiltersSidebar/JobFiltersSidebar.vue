@@ -5,7 +5,7 @@
     <section class="pb-5">
       <JobFiltersSidebarPrompt />
       <Accordion header="Skills">
-        -->
+        <JobFiltersSidebarSkills />
         <!-- If I don't specify anything here, the fallback text in the Accordion will fire -->
       </Accordion>
       <Accordion header="Degrees">
@@ -27,6 +27,7 @@ import Accordion from "@/components/Shared/Accordion.vue";
 import JobFiltersSidebarDegrees from "./JobFiltersSidebarDegrees.vue";
 import JobFiltersSidebarJobTypes from "./JobFiltersSidebarJobTypes.vue";
 import JobFiltersSidebarOrganizations from "./JobFiltersSidebarOrganizations.vue";
+import JobFiltersSidebarSkills from "./JobFiltersSidebarSkills.vue";
 import JobFiltersSidebarPrompt from "./JobFiltersSidebarPrompt.vue";
 import { defineComponent } from "vue";
 export default defineComponent({
@@ -34,6 +35,7 @@ export default defineComponent({
   components: {
     Accordion,
     JobFiltersSidebarPrompt,
+    JobFiltersSidebarSkills,
     JobFiltersSidebarDegrees,
     JobFiltersSidebarJobTypes,
     JobFiltersSidebarOrganizations,
