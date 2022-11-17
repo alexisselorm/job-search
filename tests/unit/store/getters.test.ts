@@ -1,4 +1,5 @@
 import getters from "@/store/getters";
+import { createStore } from "vuex";
 import { createDegree, createJob, createState } from "./utils";
 
 describe("getters", () => {
@@ -97,6 +98,14 @@ describe("getters", () => {
       });
       const job = createJob({ degree: "Associate" });
       const includeJob = getters.INCLUDE_JOB_BY_DEGREE(state)(job);
+      expect(includeJob).toBe(true);
+    });
+  });
+  describe("INCLUDE_JOB_BY_SKILL", () => {
+    it("identifies if job matches user's skill", () => {
+      const state = createState({ skillsSearchTerm: "Vue" });
+      const job = createJob({ title: "Vue Developer" });
+      const includeJob = getters.INCLUDE_JOB_BY_SKILL(state)(job);
       expect(includeJob).toBe(true);
     });
   });

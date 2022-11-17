@@ -34,7 +34,7 @@ const mutations = {
   [ADD_SELECTED_DEGREES](state: GlobalState, degrees: string[]) {
     state.selectedDegrees = degrees;
   },
-  [UPDATE_SKILLS_SEARCH_TERM](state: Global, skillsSearchTerm: string) {
+  [UPDATE_SKILLS_SEARCH_TERM](state: GlobalState, skillsSearchTerm: string) {
     state.skillsSearchTerm = skillsSearchTerm;
   },
   [CLEAR_USER_JOB_FILTER_SELECTIONS](state: GlobalState) {
