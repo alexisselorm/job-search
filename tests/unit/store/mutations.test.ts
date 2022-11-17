@@ -53,6 +53,14 @@ describe("mutations", () => {
       expect(startingState.selectedDegrees).toEqual(["Ph.D", "Associate"]);
     });
   });
+  describe("UPDATE_SKILLS_SEARCH_TERM", () => {
+    it("receives search term for skills the user wants to search", () => {
+      const startingState = createState({ skillsSearchTerm: "" });
+      mutations.UPDATE_SKILLS_SEARCH_TERM(startingState, "Vue");
+      expect(startingState.skillsSearchTerm).toBe("Vue");
+    });
+  });
+
   describe("CLEAR_USER_JOB_FILTER_SELECTIONS", () => {
     it("removes all job filters that the user has chosen", () => {
       const startingState = createState({
