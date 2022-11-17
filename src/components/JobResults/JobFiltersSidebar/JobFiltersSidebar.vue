@@ -4,7 +4,7 @@
   >
     <section class="pb-5">
       <JobFiltersSidebarPrompt />
-      <Accordion header="Skills">
+      <Accordion header="Skills and Qualifications">
         <JobFiltersSidebarSkills />
         <!-- If I don't specify anything here, the fallback text in the Accordion will fire -->
       </Accordion>
